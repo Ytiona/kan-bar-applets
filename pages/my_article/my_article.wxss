@@ -1,0 +1,12 @@
+page {
+  padding-top: 40rpx;
+  padding-bottom: 100rpx;
+}
+
+.article-item {
+  padding: 0 20rpx;
+}
+
+.article-item:not(:first-child) {
+  border-top: 18rpx solid #eee;
+}

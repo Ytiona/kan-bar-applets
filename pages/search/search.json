@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "base-dropdown-menu": "/components/base_dropdown_menu/base_dropdown_menu"
+  },
+  "navigationBarTitleText": "搜索"
+}

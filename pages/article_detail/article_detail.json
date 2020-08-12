@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "comment-card": "/components/comment_card/comment_card",
+    "base-dropdown-menu": "/components/base_dropdown_menu/base_dropdown_menu"
+  }
+}

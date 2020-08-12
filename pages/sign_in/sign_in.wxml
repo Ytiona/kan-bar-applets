@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="date">
+    <text class="month">08</text>
+    <text class="day"> / 08</text>
+  </view>
+  <view class="wrapper"><text>希望能和生命中所有美好白头偕老</text></view>
+  <view class="footer">- 今日寄语 -</view>
+</view>

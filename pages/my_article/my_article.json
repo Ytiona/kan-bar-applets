@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "article-card": "/components/article_card/article_card"
+  },
+  "navigationBarTitleText": "我的帖子"
+}

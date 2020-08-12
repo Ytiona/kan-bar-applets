@@ -1,0 +1,39 @@
+<view class="nav-bar" style="padding-top: {{navHeight}}rpx">
+	<image src="/assets/images/logo1x.png" mode="heightFix"></image>
+</view>
+
+<view class="header" style="margin-top: {{navHeight + 66}}rpx">
+	<i class="iconfont icon-notice" />
+	<view class="search-box" bindtap="goSearch">
+		<i class="iconfont icon-search" />
+		<text class="tips">搜索帖子</text>
+	</view>
+</view>
+
+<view class="banner">
+	<image src="/assets/images/banner.jpg" mode="widthFix"></image>
+</view>
+
+<view class="list-btn-wrapper">
+	<view class="hot-list" bindtap="goRankList" data-param="hot">
+		<image src="../../assets/images/hot_list.png" mode="widthFix"></image>
+	</view>
+	<view class="laud-list" bindtap="goRankList" data-param="laud">
+		<image src="../../assets/images/laud_list.png" mode="widthFix"></image>
+	</view>
+	<view class="comment-list" bindtap="goRankList" data-param="comment">
+		<image src="../../assets/images/comment_list.png" mode="widthFix"></image>
+	</view>
+</view>
+
+<view class="article-list">
+	<view class="top">
+		<text class="title">好贴推荐</text>
+		<view class="more" bindtap="lookMore">更多<i class="iconfont icon-more"/></view>
+	</view>
+	<view class="content">
+		<view wx:for="{{recommendList}}" wx:key="index" class="article-item">
+			<article-card article="{{item}}"/>
+		</view>
+	</view>
+</view>

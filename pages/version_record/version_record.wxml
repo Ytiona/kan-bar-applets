@@ -1,0 +1,7 @@
+<view wx:for="{{versionRecords}}" wx:key="index" class="item">
+  <view class="top">
+    <text class="title">V {{item.title}}</text>
+    <text class="time">{{item.time}}</text>
+  </view>
+  <view class="content">{{item.content}}</view>
+</view>

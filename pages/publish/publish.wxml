@@ -1,0 +1,19 @@
+<view class="slogan">无聊? 无聊你就多发点！</view>
+
+<view class="release" bindtap="goRelease" data-type="normal">
+	<view class="title">发 帖</view>
+	<view class="msg">如果无聊就分享下你生活中的屁事吧，或许有人对你的屁事感兴趣呢</view>
+	<image src="/assets/images/release_btn_bg.png" class="bg" mode="widthFix"></image>
+</view>
+
+<view class="seek">
+	<view class="l" bindtap="goRelease" data-type="pic">
+		<view class="title">求配图</view>
+		<view class="msg">无法言喻的心情，需要一张合适的配图</view>
+	</view>
+	<view class="r" bindtap="goRelease" data-type="expression">
+		<view class="title">找表情</view>
+		<view class="msg">想起一张表情包，却始终找不到，那种感觉我懂得</view>
+	</view>
+	<image src="/assets/images/seek_btn_bg.png" class="bg" mode="widthFix"></image>
+</view>

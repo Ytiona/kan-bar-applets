@@ -1,0 +1,15 @@
+<view class="title">
+  <input placeholder="请输入标题"></input>
+</view>
+
+<view class="detail">
+  <textarea placeholder="请输入详细反馈内容"></textarea>
+</view>
+
+<view class="primary-btn submit-btn">提交</view>
+
+<view class="my-records" bindtap="goMyFeedback">我的反馈记录</view>
+
+<view class="tips">提示：小程序使用过程中如果感觉到有需要改进的地方，请提交意见
+反馈，我收到您的反馈后，会给出反应，根据反馈内容考虑是否做出
+更改。</view>

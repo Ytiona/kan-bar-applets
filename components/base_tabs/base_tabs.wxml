@@ -1,0 +1,17 @@
+<view class="bt-tabs">
+  <view class="bt-nav">
+    <view
+      class="bt-nav-item {{ currentIndex == index ? 'target' : '' }}"
+      wx:for="{{tabList}}" wx:key="index"
+      bindtap="toggleNav" data-index="{{index}}"
+    >
+      {{item.label}}
+      <view class="bt-underline" hidden="{{currentIndex != index}}"></view>
+    </view>
+  </view>
+  <view class="bt-tab-content" wx:for="{{tabList}}" wx:key="index">
+    <view class="bt-tab-pane" style="display: {{currentIndex == index ? '' : 'none'}}">
+      <slot name="{{item.value}}"></slot>
+    </view>
+  </view>
+</view>

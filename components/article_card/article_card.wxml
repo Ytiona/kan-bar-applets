@@ -1,0 +1,16 @@
+<view class="ac-card" bindtap="lookDetail">
+	<view class="ac-title">{{article.title}}</view>
+	<view class="ac-info">
+		<view class="ac-avatar-wrapper">
+			<image src="{{article.authorAvatar}}" class="ac-avatar"></image>
+		</view>
+		<view class="ac-r">
+			<view class="ac-author-name">{{article.authorName}}</view>
+		</view>
+	</view>
+	<view class="ac-content">
+		<view class="ac-text">{{article.content}}</view>
+		<view class="ac-pic" wx:if="{{article.images[0]}}"><image src="{{article.images[0]}}" mode="aspectFill" class="ac-cover"></image></view>
+	</view>
+	<view class="ac-data">1.2万赞 · 202条评论</view>
+</view>

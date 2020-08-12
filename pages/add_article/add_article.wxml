@@ -1,0 +1,67 @@
+<view class="top">
+	<view class="info">
+		<image class="avatar"></image>
+		<text class="name">若隐若离</text>
+	</view>
+	<view class="release-btn primary-btn {{ title === '' || content === '' ? 'disable' : '' }}">发布</view>
+</view>
+
+<view class="word">
+	<input class="title frame" model:value="{{title}}" placeholder="请输入标题"></input>
+	<textarea class="content frame" model:value="{{content}}" placeholder="请输入内容" maxlength="-1" auto-height></textarea>
+</view>
+
+<view class="offered" hidden="{{type === 'normal'}}">
+	<i class="iconfont icon-integral" />
+	<text>悬赏积分：</text>
+	<input class="frame" placeholder="请设置悬赏积分" type="number"></input>
+</view>
+
+<view class="pic-wrapper">
+	<block wx:for="{{images}}" wx:key="item">
+		<view class="img-wrapper">
+			<image class="img" src="{{item}}" mode="aspectFill" bindtap="onPreviewImage" data-imgsrc="{{item}}"></image>
+			<i class="iconfont icon-close" bindtap="onDeleteImg" data-index="{{index}}" />
+		</view>
+	</block>
+	<view class="add-img" bindtap="onChooseImg" hidden="{{images.length > 8}}">
+		<i class="iconfont icon-camera" />
+		<view>添加照片</view>
+	</view>
+</view>
+
+<view class="footer" hidden="{{type !== 'normal'}}">
+	<view class="add_tag">
+		<i class="iconfont icon-tag" />添加标签
+	</view>
+</view>
+
+<base-modal visible="{{addTagVisible}}" title="添加标签" footerHide>
+	<view class="add-tag-container">
+		<view class="popular-tag">
+			<view class="title">常用标签：</view>
+			<view class="tags">
+				<view class="tag-item" wx:for="{{popularTags}}" wx:key="index">
+					<base-tag color="{{item.color}}" icon="{{item.icon}}" size="default" checked="{{item.checked}}" checkable bind:onChange="toggleSelectTag" data-index="{{index}}">
+						{{item.text}}
+					</base-tag>
+				</view>
+			</view>
+		</view>
+		<view class="custom-tag">
+			<input placeholder="请输入自定义标签内容" model:value="{{customTagText}}"></input>
+			<view class="add-btn" bindtap="addCustomTag">添加</view>
+		</view>
+		<view class="selected-tags">
+			<view class="title">已添加标签：</view>
+			<view class="tag-list">
+				<view class="tag-item" wx:for="{{selectedTagList}}" wx:key="index">
+					<base-tag color="{{item.color}}" icon="{{item.icon}}" size="default" closable bind:onClose="deleteTag" data-text="{{item.text}}">{{item.text}}</base-tag>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="footer">
+		<view class="ok-btn" hover-class="hover" hover-start-time="0" hover-stay-time="100">确定</view>
+	</view>
+</base-modal>

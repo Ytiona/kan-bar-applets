@@ -1,0 +1,14 @@
+<image src="/assets/images/about_bg.jpg" class="bg"></image>
+<view class="info">
+  <view class="logo">
+    <image src="/assets/images/logo_normal.png" mode="widthFix"></image>
+  </view>
+  <view class="project-name">侃 吧</view>
+  <view class="solgan">侃吧，就在这里侃侃而谈吧~</view>
+  <view class="version">版本：0.0.1</view>
+</view>
+
+<view class="list">
+  <view class="item" bindtap="goVersionRecord">版本记录<i class="iconfont icon-more"/></view>
+  <view class="item" bindtap="goDeveloperWords">开发者的话<i class="iconfont icon-more"/></view>
+</view>

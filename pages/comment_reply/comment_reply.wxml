@@ -1,0 +1,9 @@
+<view class="top">
+  <comment-card showReplay="{{false}}"/>
+</view>
+<view class="interval"></view>
+
+<view class="title">全部回复</view>
+<view class="comment-card" wx:for="{{replyList}}" wx:key="index">
+  <comment-card showReplay="{{false}}"/>
+</view>

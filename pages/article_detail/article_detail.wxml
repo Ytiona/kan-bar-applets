@@ -1,0 +1,42 @@
+<view class="top">
+	<view class="info">
+		<view class="avatar-wrapper">
+			<image mode="widthFix"></image>
+		</view>
+		<view>
+			<view class="name">若隐若离</view>
+			<view class="declaration">交友宣言</view>
+		</view>
+	</view>
+	<view class="r">
+		<view class="time">2020.08.03 15:37</view>
+		<view class="view-count"><i class="iconfont icon-eye" />1250</view>
+	</view>
+</view>
+
+<view class="content">
+	<view class="title">我是标题我是标题</view>
+	<view class="text">我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文</view>
+	<view class="pic-list">
+		<block wx:for="{{atricle.images}}" wx:key="index">
+			<image src="{{item}}" mode="widthFix"></image>
+		</block>
+	</view>
+</view>
+
+<view class="comment">
+	<base-dropdown-menu menuList="{{commentSortRule}}" isEmbed>
+		<view slot="left" class="title">评论(1250)</view>
+	</base-dropdown-menu>
+	<view class="comment-list">
+		<view wx:for="{{commentList}}" wx:key="index" class="comment-card">
+			<comment-card/>
+		</view>
+	</view>
+	<view class="bottom"  hover-class="hover" hover-start-time="0" hover-stay-time="100" bindtap="showMoreComment">更多评论<i class="iconfont icon-more"/></view>
+</view>
+
+<view class="operation">
+  <view class="laud"><i class="iconfont icon-laud"/>1250</view>
+  <view class="input-box"><input placeholder="写评论..."></input></view>
+</view>

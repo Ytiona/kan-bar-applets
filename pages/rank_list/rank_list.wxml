@@ -1,0 +1,9 @@
+<view class="title">{{text[0]}}</view>
+<view class="solgan">{{text[1]}}</view>
+
+<view class="content">
+  <view class="item" wx:for="{{rankList}}" wx:key="index">
+    <text class="rank">{{index+1}}</text>
+    <article-card article="{{item}}" class="article-card"/>
+  </view>
+</view>

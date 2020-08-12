@@ -1,0 +1,33 @@
+/* pages/feedback_records/feedback_records.wxss */
+.item {
+  margin: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40rpx;
+}
+
+.item .top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #606060;
+}
+
+.item .top .status {
+  font-size: 24rpx;
+}
+
+.item .top .status.green {
+  color: #32db4e;
+}
+
+.item .time {
+  font-size: 20rpx;
+  color: #8f8f8f;
+}
+
+.item .reply {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #606060;
+}

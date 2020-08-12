@@ -1,0 +1,9 @@
+page {
+  font-family: PingFangSC-Semibold,PingFang SC;
+}
+
+.primary-btn {
+  text-align: center;
+  color: #fff;
+  background-color: #6a95e8;
+}

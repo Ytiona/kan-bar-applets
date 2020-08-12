@@ -1,0 +1,11 @@
+<view 
+  class="bt-tag" 
+  style="background: {{ checked ? colorEnum[color] ? colorEnum[color].bgc : color : colorEnum.default.bgc }}; color: {{ checked ? color == 'default' || color == '' ? '#606060' : '#fff' : '#606060'}};" 
+  bindtap="onChange"
+>
+  <view class="bt-wrapper {{size}}">
+    <i class="iconfont icon-{{ icon }} left-icon" wx:if="{{icon}}"/>
+    <slot></slot>
+    <i class="iconfont icon-close" wx:if="{{closable}}" bindtap="onClose"/>
+  </view>
+</view>

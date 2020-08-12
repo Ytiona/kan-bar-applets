@@ -1,0 +1,30 @@
+
+<view class="search-box">
+	<base-dropdown-menu menuList="{{searchBy}}" menuList="{{searchBy}}" class="dropdown-menu">
+		<view slot="right" class="menu-right">
+			<input placeholder="输入内容进行搜索" model:value="{{searchContent}}"></input>
+			<view class="search-btn {{searchContent === '' ? 'disable' : ''}}">搜索</view>
+		</view>
+	</base-dropdown-menu>
+</view>
+
+<view class="search-history">
+	<view class="top">
+		<text class="title">搜索历史</text>
+		<i class="iconfont icon-delete" />
+	</view>
+	<view class="content">
+		<view wx:for="{{searchHistory}}" wx:key="index" class="item">{{item}}</view>
+	</view>
+</view>
+
+<view class="hot-search-list">
+	<view class="title">热搜榜</view>
+	<view class="content">
+		<view class="item" wx:for="{{hotSearchList}}" wx:key="index">
+			<text class="rank {{index < 3 ? 'first-three': ''}}">{{index + 1}}</text>
+			<text class="text">{{item.content}}</text>
+			<text class="search-count">{{item.searchCount}}次搜索</text>
+		</view>
+	</view>
+</view>

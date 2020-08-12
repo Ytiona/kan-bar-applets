@@ -1,0 +1,44 @@
+.title {
+  margin-top: 30rpx;
+  font-size: 50rpx;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  color: rgb(113,154,233);
+}
+
+.solgan {
+  font-size: 22rpx;
+  text-align: center;
+  color: #8f8f8f;
+}
+
+.content {
+  margin-top: 30rpx;
+}
+
+.content .item {
+  display: flex;
+  border-top: 18rpx solid #eee;
+}
+
+.content .item .rank {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx 0 0 20rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-style: italic;
+  border-radius: 50%;
+  box-sizing: border-box;
+  font-weight: bold;
+  color: #8f8f8f;
+}
+
+.content .item:nth-child(-n+3) .rank {
+  color: rgb(113,154,233);
+}
+
+.content .item .article-card {
+  flex: 1;
+}

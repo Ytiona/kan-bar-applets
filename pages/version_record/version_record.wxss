@@ -1,0 +1,32 @@
+/* pages/version_record/version_record.wxss */
+.item {
+  margin: 20rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40rpx;
+}
+
+.item .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item .top .title {
+  font-size: 26rpx;
+  color: #606060;
+}
+
+.item .top .time {
+  font-size: 22rpx;
+  color: #8f8f8f;
+}
+
+.item .content {
+  margin-top: 20rpx;
+  margin-left: 40rpx;
+  font-size: 24rpx;
+  line-height: 2;
+  white-space: pre-line;
+  color: #606060;
+}

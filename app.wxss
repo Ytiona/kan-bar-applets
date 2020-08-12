@@ -1,0 +1,3 @@
+@import "./styles/icon_font.wxss";
+@import "./styles/common.wxss";
+

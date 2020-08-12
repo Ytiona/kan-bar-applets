@@ -1,0 +1,22 @@
+.search-box {
+  margin: 20rpx;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+  background-color: #eeeeee;
+}
+
+.search-box .icon-search {
+  display: flex;
+  margin-right: 10rpx;
+  font-size: 26rpx;
+  color: #606060;
+}
+
+.search-box .tips {
+  font-size: 26rpx;
+  color: #606060;
+}

@@ -1,0 +1,16 @@
+<view class="bdm-wrapper">
+	<view class="bdm-menu-header {{isEmbed ? '' : 'bdm-box-sty'}}">
+    <slot name="left"></slot>
+		<view class="bdm-btn" style="color: {{open ? '#719ae9' : '#606060'}}" bindtap="toggle">
+			{{menuList[currentIndex]}}<i class="iconfont icon-open {{open ? 'bdm-up': ''}}" />
+		</view>
+    <slot name="right"></slot>
+	</view>
+	<view class="bdm-menu-wrapper" style="height: {{ open ? 100 + menuList.length*80 : 0 }}rpx; bottom: {{ toUp ? '0' : '' }}">
+		<view class="bdm-dropdown-menu {{open ? 'bdm-open' : ''}} {{ toUp ? 'bdm-up' : 'bdm-down' }}">
+			<view class="bdm-dropdown-item {{currentIndex == index ? 'bdm-target' : ''}}" wx:for="{{menuList}}" wx:key="index" bindtap="onChange" data-index="{{index}}" hover-class="bdm-hover" hover-start-time="0" hover-stay-time="100">
+				{{item}}<text class="iconfont icon-selected" hidden="{{currentIndex != index}}"></text>
+			</view>
+		</view>
+	</view>
+</view>

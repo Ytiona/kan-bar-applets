@@ -1,0 +1,83 @@
+<view class="row">
+  <view>头像</view>
+  <image class="avatar"></image>
+</view>
+
+<view class="row" bindtap="showEditModal" data-param="name">
+  <view>昵称</view>
+  <view>若隐若离</view>
+</view>
+
+<view class="row" bindtap="showEditModal" data-param="declaration">
+  <view>个性签名</view>
+  <view>还没有签名</view>
+</view>
+
+
+<view class="interval"></view>
+
+<view class="row" bindtap="showEditModal" data-param="sex">
+  <view>性别</view>
+  <view>未知</view>
+</view>
+
+<view class="row" bindtap="showEditModal" data-param="region">
+  <view>地区</view>
+  <view>湖南省 长沙市</view>
+</view>
+
+<view class="row" bindtap="showEditModal" data-param="QQ">
+  <view>QQ</view>
+  <view>490081587</view>
+</view>
+
+<base-modal title="修改昵称" class="name-modal" visible="{{nameModalVisible}}">
+  <view class="content">
+    <input placeholder="请输入昵称"></input>
+    <i class="iconfont icon-close"/>
+  </view>
+</base-modal>
+
+<base-modal title="修改个性签名" class="declaration-modal" visible="{{declarationModalVisible}}">
+  <view class="content">
+    <textarea placeholder="请输入个性签名" maxlength="120"></textarea>
+    <view class="bottom">0/120<i class="iconfont icon-close"/></view>
+  </view>
+</base-modal>
+
+<base-modal class="sex-modal" footerHide visible="{{sexModalVisible}}">
+  <view class="content">
+    <view 
+      class="sex-item target" 
+      hover-class="hover" hover-start-time="0" hover-stay-time="100"
+    >
+      男<i class="iconfont icon-selected"/>
+    </view>
+    <view 
+      class="sex-item" 
+      hover-class="hover" hover-start-time="0" hover-stay-time="100"
+    >
+      女<i class="iconfont icon-selected"/>
+    </view>
+  </view>
+</base-modal>
+
+<base-modal title="请选择地区" class="region-modal" visible="{{regionModalVisible}}">
+  <view class="content">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" bindchange="regionPickerChange" value="{{selectedRegionIdx}}">
+      <picker-view-column>
+        <view wx:for="{{region}}" wx:key="adcode" class="picker-view-column">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{currentCitys}}" wx:key="adcode" class="picker-view-column">{{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</base-modal>
+
+<base-modal title="设置QQ" class="QQ-modal" visible="{{QQModalVisible}}">
+  <view class="content">
+    <input placeholder="请输入QQ"></input>
+    <i class="iconfont icon-close"/>
+  </view>
+</base-modal>

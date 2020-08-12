@@ -1,0 +1,89 @@
+/* pages/person/person.wxss */
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.info {
+  margin: 30rpx 0;
+  text-align: center;
+  color: #fff;
+}
+
+.info .avatar-wrapper {
+  display: inline-block;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.info .name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.info .declaration {
+  font-size: 22rpx;
+  font-weight: 300;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  margin: 0 30rpx;
+  height: 120rpx;
+  border-radius: 60rpx; 
+  box-shadow: 0 0 10rpx 4rpx rgba(100,100,100,0.1);
+  text-align: center;
+  background-color: #fff;
+}
+
+.count>view {
+  flex: 1;
+}
+
+.count .c {
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+
+.count .num {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #606060;
+}
+
+.count .title {
+  font-size: 24rpx;
+  color: #8f8f8f;
+}
+
+.btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 100rpx;
+  text-align: center;
+}
+
+.btn-wrapper .item {
+  width: 110rpx;
+  margin-right: 110rpx;
+  margin-bottom: 50rpx;
+}
+
+.btn-wrapper .item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.btn-wrapper .item image {
+  width: 100%;
+}
+
+.btn-wrapper .item .title {
+  font-size: 24rpx;
+  color: #606060;
+}

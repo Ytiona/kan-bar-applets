@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "base-tabs": "/components/base_tabs/base_tabs"
+  },
+  "navigationBarTitleText": "积分记录"
+}

@@ -1,0 +1,40 @@
+/* pages/feedback/feedback.wxss */
+
+.title input,
+.detail textarea{
+  width: 100%;
+  margin: 20rpx;
+  font-size: 26rpx;
+  border: 1px solid #eee;
+  border-radius: 8rpx;
+  padding: 10rpx;
+  color: #606060;
+}
+
+.detail textarea {
+  height: 500rpx;
+}
+
+.submit-btn {
+  margin: 20rpx auto;
+  width: 240rpx;
+  border-radius: 8rpx;
+  padding: 14rpx 0;
+  font-size: 24rpx;
+}
+
+.my-records {
+  text-align: center;
+  width: 200rpx;
+  margin: 0 auto;
+  padding: 30rpx 0;
+  font-size: 22rpx;
+  text-decoration: underline;
+  color: #8f8f8f;
+}
+
+.tips {
+  margin: 50rpx 20rpx;
+  font-size: 22rpx;
+  color: #8f8f8f;
+}

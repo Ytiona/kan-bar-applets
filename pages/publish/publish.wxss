@@ -1,0 +1,70 @@
+.slogan {
+  margin: 30rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+  color: #8f8f8f;
+}
+
+.release,
+.seek {
+  position: relative;
+  width: 710rpx;
+  height: 308rpx;
+  margin: 20rpx;
+  color: #fff;
+}
+
+.release {
+  padding: 40rpx 100rpx;
+  box-sizing: border-box;
+}
+
+.seek {
+  display: flex;
+}
+
+.title {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.msg {
+  font-weight: 300;
+  font-size: 24rpx;
+}
+
+.release .title {
+  font-size: 76rpx;
+}
+
+.seek .title {
+  font-size: 50rpx;
+}
+
+.release .msg {
+  margin-left: 100rpx;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+}
+
+.seek .l,
+.seek .r {
+  position: relative;
+  width: 300rpx;
+}
+
+.seek .l {
+  left: 30rpx;
+  top: 30rpx;
+}
+
+.seek .r {
+  top: 120rpx;
+  left: 100rpx;
+}

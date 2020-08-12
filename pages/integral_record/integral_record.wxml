@@ -1,0 +1,8 @@
+<base-tabs tabList="{{tabList}}"></base-tabs>
+
+<view class="list">
+  <view class="item" wx:for="{{integralRecords}}" wx:key="index">
+    <view class="title">{{item.title}}<text class="{{item.account > 0 ? 'green' : 'red'}}">{{item.account}}</text></view>
+    <view class="time">{{item.time}}</view>
+  </view>
+</view>

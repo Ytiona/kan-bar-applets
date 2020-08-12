@@ -1,0 +1,152 @@
+page {
+  padding-bottom: 100rpx;
+}
+
+.top {
+  margin: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.top .info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.top .info .avatar-wrapper {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+  background-color: #eee;
+}
+
+.top .info .avatar-wrapper image {
+  width: 100%;
+}
+
+.top .name {
+  font-size: 26rpx;
+  color: #606060;
+}
+
+.top .time,
+.top .declaration,
+.top .view-count{
+  font-size: 22rpx;
+  color: #8f8f8f;
+}
+
+.top .r {
+  text-align: right;
+}
+
+.top .view-count {
+  margin-top: 10rpx;
+}
+
+.top .view-count .icon-eye {
+  font-size: 26rpx;
+}
+
+.content {
+  margin: 20rpx;
+}
+
+.content .title {
+  font-size: 26rpx;
+  color: #454545;
+}
+
+.content .text {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  color: #606060;
+}
+
+.content .pic-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content .pic-list image {
+  width: 335rpx;
+  height: 240rpx;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  background-color: #eee;
+}
+
+.content .pic-list image:nth-child(2n) {
+  margin-left: 20rpx;
+}
+
+.comment {
+  margin: 30rpx 0;
+}
+
+.comment .comment-card:not(:last-child) {
+  border-bottom: 1rpx solid #eee;
+}
+
+.comment .title {
+  border-left: 10rpx solid #ddd;
+  padding-left: 10rpx;
+  font-size: 28rpx;
+  color: #606060;
+}
+
+.comment .comment-list {
+  margin: 0 20rpx;
+}
+
+.comment .bottom {
+  padding: 20rpx 0;
+  font-size: 26rpx;
+  text-align: center;
+  color: #8f8f8f;
+}
+
+.comment .bottom.hover {
+  background-color: #eee;
+}
+
+.comment .bottom .icon-more {
+  font-size: 26rpx;
+}
+
+.operation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  box-shadow: 0 0 10rpx 4rpx #eee;
+  background-color: #fff;
+}
+
+.operation .laud {
+  font-size: 26rpx;
+  color: #606060;
+}
+
+.operation .laud .icon-laud {
+  font-size: 28rpx;
+  margin-right: 10rpx;
+}
+
+.operation .input-box {
+  flex: 1;
+  margin-left: 20rpx;
+  padding-left: 20rpx;
+  border-left: 1px solid #eee;
+}
+
+.operation .input-box input {
+  width: 100%;
+  color: #606060;
+}

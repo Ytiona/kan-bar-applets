@@ -1,0 +1,104 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20rpx;
+  margin: 50rpx 20rpx;
+  border-bottom: 1px solid #eee;
+  font-size: 26rpx;
+  color: #606060;
+}
+
+.row>view:nth-child(2n) {
+  color: #8f8f8f;
+}
+
+.row .avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+.interval {
+  margin: 20rpx 0;
+  height: 20rpx;
+  background-color: #eee;
+}
+
+.name-modal .content,
+.QQ-modal .content,
+.declaration-modal .content {
+  margin: 80rpx 60rpx;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10rpx;
+  border-bottom: 1px solid #eee;
+  color: #606060;
+}
+
+.declaration-modal .content {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 300rpx;
+}
+
+.name-modal .content input,
+.QQ-modal .content input,
+.declaration-modal .content textarea {
+  flex: 1;
+}
+
+.declaration-modal .content textarea {
+  line-height: 1.5;
+}
+
+.name-modal .content .icon-close,
+.QQ-modal .content .icon-close,
+.declaration-modal .content .icon-close{
+  font-size: 24rpx;
+  color: #8f8f8f;
+}
+
+.declaration-modal .content .bottom {
+  align-self: flex-end; 
+  color: #8f8f8f;
+}
+
+.declaration-modal .content .icon-close {
+  padding: 10rpx 20rpx;
+  margin-left: 20rpx;
+}
+
+.sex-modal .content .sex-item {
+  display: flex;
+  padding: 30rpx;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #606060;
+}
+
+.sex-modal .content .sex-item .icon-selected {
+  font-size: 0rpx;
+}
+
+.sex-modal .content .sex-item.target {
+  color: #6a95e8;
+}
+
+.sex-modal .content .sex-item.target .icon-selected {
+  font-size: 20rpx;
+}
+
+.sex-modal .content .sex-item.hover {
+  background-color: #eee;
+}
+
+.picker-view-column {
+  text-align: center;
+  line-height: 50px;
+  color: #606060;
+  font-size: 26rpx;
+}

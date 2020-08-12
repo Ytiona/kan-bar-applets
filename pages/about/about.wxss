@@ -1,0 +1,69 @@
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.info {
+  width: 300rpx;
+  margin: 120rpx auto;
+  text-align: center;
+  color: #fff;
+}
+
+.info .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 50%;
+  box-shadow: 0 4rpx 10rpx 4rpx rgba(100,100,100,0.2);
+  font-size: 0;
+  background-color: #fff;
+}
+
+.info .logo image {
+  width: 74%;
+}
+
+.info .project-name{
+  margin-top: 20rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.info .solgan {
+  font-size: 22rpx;
+  margin: 10rpx 0;
+  opacity: 0.8;
+}
+
+.info .version {
+  font-size: 26rpx;
+  opacity: 0.5;
+}
+
+.list {
+  width: 500rpx;
+  margin: 0 auto;
+  font-size: 28rpx;
+  opacity: 0.8;
+  color: #fff;
+}
+
+.list .item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.list .item .icon-more {
+  font-size: 26rpx;
+}

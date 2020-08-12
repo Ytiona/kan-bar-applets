@@ -1,0 +1,24 @@
+<view class="cc-comment-item">
+	<view class="cc-top">
+		<view class="cc-info">
+			<view class="cc-avatar-wrapper">
+				<image mode="widthFix"></image>
+			</view>
+			<view>
+				<view class="cc-name">若隐若离</view>
+				<view class="cc-time">2020.08.03 15:37</view>
+			</view>
+		</view>
+		<view class="cc-r">
+			<i class="iconfont icon-laud" />1250
+		</view>
+	</view>
+	<view class="cc-content">评论内容评论内容评论内容评论内容评论内容</view>
+	<view class="cc-bottom">
+		<view class="cc-btn-wrapper"><view class="cc-adopt-btn" wx:if="{{showAdoptBtn}}">采纳此回答</view></view>
+		<view class="cc-reply" bindtap="goCommentReply" hover-class="cc-hover" hover-start-time="0" hover-stay-time="100" wx:if="{{showReplay}}">
+			1156条回复<i class="iconfont icon-more" />
+		</view>
+	</view>
+	<image class="cc-adopted" src="/assets/images/adopted.png" mode="widthFix" wx:if="{{adopted}}"></image>
+</view>

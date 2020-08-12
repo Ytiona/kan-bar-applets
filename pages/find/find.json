@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "base-tabs": "/components/base_tabs/base_tabs"
+  }
+}

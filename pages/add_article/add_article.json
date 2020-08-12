@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "base-tag": "/components/base_tag/base_tag",
+    "base-modal": "/components/base_modal/base_modal"
+  }
+}

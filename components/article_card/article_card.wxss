@@ -1,0 +1,73 @@
+.ac-card {
+  padding: 20rpx;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.ac-card .ac-cover{
+  width: 100%;
+}
+
+.ac-card .ac-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow:hidden;
+  margin-bottom: 10rpx;
+  text-align: left;
+  font-style: normal;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #606060;
+}
+
+.ac-card .ac-info {
+  display: flex;
+  align-items: center;
+}
+
+.ac-card .ac-info .ac-avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.ac-card .ac-info .ac-r {
+  margin-left: 10rpx;
+}
+
+.ac-card .ac-info .ac-author-name{
+  font-size: 24rpx;
+  color: #8f8f8f;
+}
+
+.ac-card .ac-content {
+  display: flex;
+  margin: 10rpx 0;
+}
+
+.ac-card .ac-content .ac-text{
+  flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow:hidden;
+  font-size: 22rpx;
+  color: #8f8f8f;
+}
+
+.ac-card .ac-content .ac-pic {
+  margin-left: 10rpx;
+}
+
+.ac-card .ac-content .ac-pic image {
+  width: 150rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+}
+
+.ac-card .ac-data {
+  font-size: 24rpx;
+  color: #8f8f8f;
+}

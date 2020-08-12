@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "base-modal": "/components/base_modal/base_modal"
+  },
+  "navigationBarTitleText": "我的资料"
+}

@@ -1,0 +1,39 @@
+.bt-tag {
+  display: inline-block;
+  align-items: center;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  background-color: #eee;
+}
+
+.bt-wrapper {
+  display: flex;
+  align-items: center;
+  line-height: 20rpx;
+}
+
+.bt-wrapper.large {
+  padding: 0 24rpx;
+  height: 64rpx;
+}
+
+.bt-wrapper.medium {
+  padding: 0 20rpx;
+  height: 56rpx;
+}
+
+.bt-wrapper.default {
+  padding: 0 14rpx;
+  height: 50rpx;
+}
+
+.left-icon {
+  font-size: 20rpx;
+  margin-right: 6rpx;
+}
+
+.icon-close {
+  padding: 6rpx;
+  font-size: 18rpx;
+  opacity: 0.6;
+}

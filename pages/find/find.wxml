@@ -1,0 +1,6 @@
+<base-tabs tabList="{{tabList}}"></base-tabs>
+
+<view class="search-box" bindtap="goSearch" hidden="{{currentNav != 0}}">
+	<i class="iconfont icon-search" />
+	<text class="tips">搜索帖子</text>
+</view>

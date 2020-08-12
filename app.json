@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/find/find",
+    "pages/publish/publish",
+    "pages/person/person",
+    "pages/search/search",
+    "pages/add_article/add_article",
+    "pages/article_detail/article_detail",
+    "pages/my_info/my_info",
+    "pages/integral_record/integral_record",
+    "pages/feedback/feedback",
+    "pages/feedback_records/feedback_records",
+    "pages/about/about",
+    "pages/version_record/version_record",
+    "pages/rank_list/rank_list",
+    "pages/comment_reply/comment_reply",
+    "pages/my_article/my_article",
+    "pages/sign_in/sign_in",
+    "pages/developer_words/developer_words"
+  ],
+  "tabBar": {
+    "color": "#c4c7ce",
+    "selectedColor": "#6a95e8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tabbar_icon/home.png",
+        "selectedIconPath": "assets/tabbar_icon/home_selected.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "assets/tabbar_icon/find.png",
+        "selectedIconPath": "assets/tabbar_icon/find_selected.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "发布",
+        "iconPath": "assets/tabbar_icon/publish.png",
+        "selectedIconPath": "assets/tabbar_icon/publish_selected.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "assets/tabbar_icon/person.png",
+        "selectedIconPath": "assets/tabbar_icon/person_selected.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "侃吧",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
