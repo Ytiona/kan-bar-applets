@@ -1,0 +1,38 @@
+<view class="wcb-container">
+	<view style="display: {{focus ? 'none' : 'flex'}}">
+		<slot></slot>
+		<view class="focus-btn" bindtap="onWriteComment">写评论...</view>
+	</view>
+	<view class="write-comment" hidden="{{!focus}}">
+		<view class="imgs" hidden="{{!images.length}}">
+			<scroll-view scroll-x enable-flex>
+				<view class="wrapper">
+					<view class="item" wx:for="{{images}}" wx:key="item">
+						<image src="{{item.path}}"></image>
+						<i class="iconfont icon-close" bindtap="onDeleteImg" data-index="{{index}}"/>
+					</view>
+				</view>
+			</scroll-view>
+		</view>
+		<view class="wrapper">
+			<view 
+				class="upload-pic-btn" 
+				bindtap="onChooseImg"
+				hover-class="hover"
+				hover-start-time="0"
+				hover-stay-time="100"
+			><i class="iconfont icon-pic" /></view>
+			<textarea 
+				placeholder="请输入评论" 
+				auto-height maxlength="{{500}}" 
+				bindblur="onBlurWriteComment" 
+				focus="{{focus}}" 
+				bindfocus="onFocusWriteComment"
+				model:value="{{commentContent}}"
+				show-confirm-bar="{{false}}"
+				hold-keyboard
+			></textarea>
+			<view class="release-btn {{ commentContent !== '' || images.length ? '' : 'disable' }}" bindtap="onReleaseComment">发表</view>
+		</view>
+	</view>
+</view>

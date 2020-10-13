@@ -1,0 +1,253 @@
+<!--
+此文件为开发者工具生成，生成时间: 2020/8/21 上午12:41:28 
+使用方法：
+在 pages\find\find.wxml 引入模板
+
+```
+<import src="find.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 pages\find\find.wxss 中引入样式
+```
+@import "./find.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view is="components/base_tabs/base_tabs">
+      <view class="bt-tabs tabs--bt-tabs">
+        <view class="bt-nav tabs--bt-nav" style="border: none;">
+          <view class="bt-nav-item tabs--bt-nav-item target tabs--target sk-transparent" data-index="0">
+            帖子
+            <view class="bt-underline tabs--bt-underline">
+            </view>
+          </view>
+          <view class="bt-nav-item tabs--bt-nav-item sk-transparent" data-index="1">
+            求配图
+          </view>
+          <view class="bt-nav-item tabs--bt-nav-item sk-transparent" data-index="2">
+            找表情
+          </view>
+        </view>
+        <view class="bt-tab-content tabs--bt-tab-content">
+          <view class="bt-tab-pane tabs--bt-tab-pane" style="display: ">
+            <view>
+              <view class="search-wrapper">
+                <view class="search-box">
+                  <i class="iconfont icon-search sk-pseudo sk-pseudo-circle">
+                  </i>
+                  <text class="tips sk-transparent sk-text-14-2857-936 sk-text">
+                    搜索帖子
+                  </text>
+                </view>
+              </view>
+              <view class="list-wrapper">
+                <view is="components/article_list/article_list" id="article-list">
+                  <view class="list--article-list">
+                    <view class="list--article-item" style="border: none;">
+                      <view is="components/article_card/article_card">
+                        <view class="ac-card card--ac-card">
+                          <view class="ac-title card--ac-title sk-transparent sk-text-14-2857-671 sk-text">
+                            小张与小丽
+                          </view>
+                          <view class="ac-info card--ac-info">
+                            <view class="ac-avatar-wrapper card--ac-avatar-wrapper">
+                              <image class="ac-avatar card--ac-avatar sk-image">
+                              </image>
+                            </view>
+                            <view class="ac-r card--ac-r">
+                              <view class="ac-author-name card--ac-author-name sk-transparent sk-text-14-2857-78 sk-text">
+                                Shadow
+                              </view>
+                            </view>
+                          </view>
+                          <view class="ac-content card--ac-content">
+                            <view class="ac-text card--ac-text sk-transparent sk-text-14-2857-723 sk-text">
+                              一不小心，看到了李毅吧发的一篇小说《小张和小丽》，作者是开开550。
+
+　　很老的一个故事了，写于2012年，那一年，是我毕业工作的第二年。
+
+　　印象中，已经很久没有看过这种类型的小说了。这种总是会让人心痛流泪的故事。
+
+　　曾经有一段时间，我偏执的找一些解决悲伤的小说或者电影来看，寻找一种虐心的快感。那个时候，始终觉得，感动和被感动，是这世界最幸福的事。
+
+　　咋一看到这个故事，仿佛一下子让回到了曾经。看的时候，在上着班，而我眼里一直擎着泪水，只有用抽纸偷偷的抹去。
+
+　　故事情节其实很简单，也很俗套。只是对一些细节的描写及把握还算精准。而有的时候，往往是一些生活上的细节才更能够打动人。
+
+　　小张和小丽，有的时候，你们会分不清她们两个究竟谁才是肮脏的人，或许谁都不是。一个是残酷的现实，一个是普众的现实。但不管是哪个，现实的真相总是让人难以接受的。
+
+　　小翔是个好人吗?小翔是个坏人吗?他只是个普通人的缩影罢了。
+
+　　以前对于小姐基本上都是处于能够理解的状态，觉得她们总有些难言之影。
+
+　　然后又有一种言论，小姐总是说，回去找个好人嫁了吧。
+
+　　感觉伤害了“好人”。有点厌恶。
+　　现在想想，其实，也是片面的。做过小姐，就不能追求幸福么?就不能从新过生活么?当然这也得看人。有病或者不能生育的，还是得先说清楚的。不能坑老实人，老实人找个对象真的不容易。老实人的家里，对生育这种事一般也是会比较看重的。如果说清楚了，还愿意的话，为何不可以幸福呢。
+
+　　每个人都有自己不可告人的秘密，以及无法诉说的曾经。有些事是无可奈何，有些事是迫不得已，而有些事则是年幼无知。
+
+　　就好比我，也有一件不可告人的秘密，谁也不知道一样，我谁也没说，我基本上自己也是把这个事忘了。
+
+　　十三岁那年，我上初一，一个人在外地读书，成绩也尚可，年级前十名。但我那个时候，犯了一个错误，行窃，然后被抓。
+
+　　那个时候没什么钱，然后有一天一个同学拿了本教辅书跟我说这个是从书店偷的，还告诉了我怎么偷。其实就是把书偷偷的藏在外套里带出来。
+
+　　也不知道为什么，当时头脑发热，当时也做了这种事，因为没有经验，被抓。不过我当时还算比较冷静，跟店老板商量赔他100块，然后签字保证后回家拿钱。赔了他一百块，这件事就这样悄无声息的过去了。(100块，基本上等于那个时候我一个学期所有的零花钱了)。
+
+　　我当时偷的是一本英文教辅书，带磁带的那种。那之后，我没背过一个英文单词。
+
+　　我想说的是，到目前为止，我都没有觉得那是一件可耻的事，我也已经为我的愚昧以及范过的错买单了。从那之后，我也从没有多拿过任何超出我应得的部分。人总是需要成长的，而有的时候，成长总是需要付出代价的。
+
+　　之所以说我自己的这个事，是想说，真的是没个人都是有自己的秘密的。而有的秘密可以说，有的秘密不能说。秘密之所以是秘密，往往是因为说出去容易带来伤害。
+
+　　有一个做小姐的曾经，也是个秘密。
+
+　　有的人走上这条路，可能真的是年少无知、有的人可能是被迫的。有的人可能是自愿的，但是她可能需要钱。我们在用亵渎的眼神看着她们的时候，她们可能在背后默默的撑起了一个家庭。
+
+　　谁愿意一开始就选择这样的生活?谁不想过一个幸福、那怕是普通一点的生活?小姐也是人，也是有感情需求的。在感情上可能是更脆弱的。
+
+　　但这个世界就是这样，看似公平，实际上没有任何公平可言。人生百味，各色各样的故事总是时有发生。
+
+　　再讲个故事，也还是说我自己的一段经历吧。
+
+　　实话说，我不喜欢找小姐，因为怕，害怕得病，因为不喜欢没有感情的欲望。所以我都不找小姐。这里说害怕得病，不是歧视小姐，而是相对来说，小姐得病的几率更高。这也是小姐的可悲之处，得病后，谁来为她们买单?”残花败柳“这个词真的是很残忍。
+
+　　偶尔的时候，朋友约的话，可能会去做下足疗或者按摩，疲惫的时候，做下足疗或者按摩还是蛮放松的。
+
+　　我要说的是一次做水疗的经历。朋友叫了按摩的服务，整个流程完了之后，还有点时间。就和技师聊了会天。她是哪里人已经忘了，只记得是一个偏僻落后的地方。给我看了她家里的照片，可以说是家徒四壁。
+
+　　她已经结婚了，结婚的时间不算长，老公在佛山，有一个一岁多的孩子。她跟我说，孩子9个月大的时候，就出来工作了。孩子周岁的时候，没能回去，给他她老公买了张机票，只有她老公回去了。
+
+　　给我看了他孩子的照片，和孩子一周岁时，用手机拍的小视频。她应该看过很多次，她说她想孩子，说到孩子和家庭的时候，她整个人仿佛都沉默了下来。
+
+　　到最后，我都没有问她老公知不知道她在做按摩的工作。我也没有问她过得好不好的。
+
+　　有的时候，我们仿佛看得很清楚，仿佛又摸不透。悲伤是自己的，幸福是自己的。有的时候只有沉默。
+
+　　同情而为她难过的同时，我也没能力帮她，也不可能爱上她。我们仿佛在陌生人面前讲了真话，仿佛在陌生人面前得到了倾述一样。就仿佛前几天我在QQ上跟一个没有说过几句话的人讲了关于我的一些私心话一样。
+
+　　她不需要我的同情与怜悯，我也不需要得到听我述说的那个人的回应。 有的时候我们只是需要倾述而已。
+
+　　其实，这种事，是不该公开拿出来说的，男人之间私底下可以说，女人们其实也知道，但是这是一个不能戳破的秘密。
+
+　　但我还是决定说了，这里也没几个现实中认识的朋友关注我。我也没做什么伤心病狂或者有违道德伦理的事。我单身，至今初吻还在。有的时候反而会觉得这才是令人羞耻、感到失败的。
+
+　　《小张和小丽》是个故事，但是在现实生活中能映射出很多真实的影子。小张是我们所熟悉的真实，生活中不乏这样的存在。而小丽则是另一种隐藏于黑暗中的真实，有的时候更能刺痛人。
+
+　　这个故事应该感动了很多人。而这种感动，往往其实是源自于小丽所扮演的较色，如此完美，却有一个不完美的职业。伤感源于缺憾与遗憾。
+
+　　在《小张与小丽》的姊妹篇《青青》中，讲了另外一个小丽回家后，小姐从良后的故事。故事很简单，但是连起来读，仍然让人感动。里面有一句话，我印象很深刻。
+
+　　“不，他只是陪我走到了他力所能及的终点。”
+
+　　这是对前一份感情的终结。
+
+　　“如果可以，我希望可以陪你走完另一条。”
+
+　　者是对后一份感情的期许。
+
+　　然而，这一切仿佛又都是奢望。谁又知道呢。
+                            </view>
+                            <view class="ac-pic card--ac-pic">
+                              <image class="ac-cover card--ac-cover sk-image" mode="aspectFill">
+                              </image>
+                            </view>
+                          </view>
+                          <view class="ac-data card--ac-data sk-transparent sk-text-14-2857-79 sk-text">
+                            100赞 · 0条评论
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                    <view class="list--article-item" style="border: none;">
+                      <view is="components/article_card/article_card">
+                        <view class="ac-card card--ac-card">
+                          <view class="ac-title card--ac-title sk-transparent sk-text-14-2857-286 sk-text">
+                            小张与小丽
+                          </view>
+                          <view class="ac-info card--ac-info">
+                            <view class="ac-avatar-wrapper card--ac-avatar-wrapper">
+                              <image class="ac-avatar card--ac-avatar sk-image">
+                              </image>
+                            </view>
+                            <view class="ac-r card--ac-r">
+                              <view class="ac-author-name card--ac-author-name sk-transparent sk-text-14-2857-880 sk-text">
+                                Shadow
+                              </view>
+                            </view>
+                          </view>
+                          <view class="ac-content card--ac-content">
+                            <view class="ac-text card--ac-text sk-transparent sk-text-14-2857-139 sk-text">
+                              呜呜呜
+                            </view>
+                          </view>
+                          <view class="ac-data card--ac-data sk-transparent sk-text-14-2857-229 sk-text">
+                            0赞 · 0条评论
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                    <view class="list--article-item" style="border: none;">
+                      <view is="components/article_card/article_card">
+                        <view class="ac-card card--ac-card">
+                          <view class="ac-title card--ac-title sk-transparent sk-text-14-2857-889 sk-text">
+                            第二个帖子
+                          </view>
+                          <view class="ac-info card--ac-info">
+                            <view class="ac-avatar-wrapper card--ac-avatar-wrapper">
+                              <image class="ac-avatar card--ac-avatar sk-image">
+                              </image>
+                            </view>
+                            <view class="ac-r card--ac-r">
+                              <view class="ac-author-name card--ac-author-name sk-transparent sk-text-14-2857-539 sk-text">
+                                Shadow
+                              </view>
+                            </view>
+                          </view>
+                          <view class="ac-content card--ac-content">
+                            <view class="ac-text card--ac-text sk-transparent sk-text-14-2857-919 sk-text">
+                              呵呵呵呵
+                            </view>
+                            <view class="ac-pic card--ac-pic">
+                              <image class="ac-cover card--ac-cover sk-image" mode="aspectFill">
+                              </image>
+                            </view>
+                          </view>
+                          <view class="ac-data card--ac-data sk-transparent sk-text-14-2857-787 sk-text">
+                            0赞 · 0条评论
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                    <view class="list--article-item" style="border: none;">
+                      <view is="components/article_card/article_card">
+                        <view class="ac-card card--ac-card">
+                          <view class="ac-title card--ac-title sk-transparent sk-text-14-2857-340 sk-text">
+                            第一个帖子
+                          </view>
+                          <view class="ac-info card--ac-info">
+                          </view>
+                          <view class="ac-content card--ac-content">
+                          </view>
+                          <view class="ac-data card--ac-data">
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                  <view is="components/base_list_footer/base_list_footer">
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

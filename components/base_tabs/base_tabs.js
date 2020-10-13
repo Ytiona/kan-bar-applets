@@ -9,14 +9,22 @@ Component({
   },
 
   properties: {
-    tabList: Array
+    tabList: Array,
+    topOffset: {
+      type: Number,
+      value: 0
+    },
+    currentIndex: {
+      type: Number,
+      value: 0
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    currentIndex: 0
+    
   },
 
   /**

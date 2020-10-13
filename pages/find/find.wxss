@@ -1,22 +1,69 @@
-.search-box {
-  margin: 20rpx;
+page {
+  padding-bottom: 50rpx;
+}
+
+.aux {
+  display: flex;
+  align-items: center;
+}
+
+.aux .tags {
   flex: 1;
+  margin-left: 20rpx;
+}
+
+.aux .tags scroll-view {
+  position: relative;
+  height: 60rpx;
+}
+
+.aux .tags scroll-view .wrapper {
+  display: flex;
+  position: absolute;
+  top: 4rpx;
+}
+
+.aux .tags .tag-item {
+  position: relative;
+  width: 100rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  color: #8f8f8f;
+  background-color: #eee;
+}
+
+.aux .tags .tag-item.target {
+  color: #fff;
+  background-color: #6a95e8;
+}
+
+
+.aux .search-wrapper {
+  background-color: #fff;
+}
+
+.aux .search-box {
+  margin: 20rpx;
   display: flex;
   align-items: center;
   padding: 0 20rpx;
   height: 60rpx;
   border-radius: 60rpx;
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 
-.search-box .icon-search {
+.aux .search-box .icon-search {
   display: flex;
   margin-right: 10rpx;
   font-size: 26rpx;
   color: #606060;
 }
 
-.search-box .tips {
+.aux .search-box .tips {
   font-size: 26rpx;
   color: #606060;
 }

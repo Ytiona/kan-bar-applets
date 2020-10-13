@@ -1,0 +1,10 @@
+<base-tabs tabList="{{tabList}}" currentIndex="{{currentTabIdx}}">
+  <view class="list" slot="follow">
+		<user-card wx:for="{{followUserList}}" wx:key="id" user="{{item}}"/>
+		<base-list-footer list="{{followUserList}}" haveMore="{{fo_haveMore}}" loadingMore="{{fo_loadingMore}}"/>
+	</view>
+  <view class="list" slot="fans">
+    <user-card wx:for="{{fansUserList}}" wx:key="id" user="{{item}}"/>
+		<base-list-footer list="{{fansUserList}}" haveMore="{{fa_haveMore}}" loadingMore="{{fa_loadingMore}}"/>
+  </view>
+</base-tabs>

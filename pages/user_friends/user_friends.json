@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "base-tabs": "/components/base_tabs/base_tabs",
+    "base-list-footer": "/components/base_list_footer/base_list_footer",
+    "user-card": "/components/user_card/user_card"
+  },
+  "navigationBarTitleText": "Ta的好友"
+}

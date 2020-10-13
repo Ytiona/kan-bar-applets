@@ -1,83 +1,98 @@
-<view class="row">
-  <view>头像</view>
-  <image class="avatar"></image>
+<view class="row" bindtap="chooseImg" hover-class="hover" hover-start-time="0" hover-stay-time="0">
+	<view>头像</view>
+	<image class="avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
 </view>
 
-<view class="row" bindtap="showEditModal" data-param="name">
-  <view>昵称</view>
-  <view>若隐若离</view>
+<view class="row" bindtap="showEditModal" data-param="name" hover-class="hover" hover-start-time="0" hover-stay-time="0">
+	<view>昵称</view>
+	<view>{{userInfo.nickname}}</view>
 </view>
 
-<view class="row" bindtap="showEditModal" data-param="declaration">
-  <view>个性签名</view>
-  <view>还没有签名</view>
+<view class="row" bindtap="showEditModal" data-param="declaration" hover-class="hover" hover-start-time="0" hover-stay-time="0">
+	<view>个性签名</view>
+	<view>{{userInfo.declaration || '还没有签名'}}</view>
 </view>
 
 
 <view class="interval"></view>
 
-<view class="row" bindtap="showEditModal" data-param="sex">
-  <view>性别</view>
-  <view>未知</view>
+<view class="row" bindtap="showEditModal" data-param="sex" hover-class="hover" hover-start-time="0" hover-stay-time="0">
+	<view>性别</view>
+	<view>{{userInfo.sex == -1 ? '未知' : userInfo.sex == 0 ? '女' : '男'}}</view>
 </view>
 
-<view class="row" bindtap="showEditModal" data-param="region">
-  <view>地区</view>
-  <view>湖南省 长沙市</view>
+<view class="row" bindtap="showEditModal" data-param="region" hover-class="hover" hover-start-time="0" hover-stay-time="0">
+	<view>地区</view>
+	<view>{{userInfo.region || '未知'}}</view>
 </view>
 
-<view class="row" bindtap="showEditModal" data-param="QQ">
-  <view>QQ</view>
-  <view>490081587</view>
+<view class="row" bindtap="showEditModal" data-param="QQ" hover-class="hover" hover-start-time="0" hover-stay-time="0">
+	<view>QQ</view>
+	<view>{{userInfo.qq || '未知'}}</view>
 </view>
 
-<base-modal title="修改昵称" class="name-modal" visible="{{nameModalVisible}}">
-  <view class="content">
-    <input placeholder="请输入昵称"></input>
-    <i class="iconfont icon-close"/>
-  </view>
+<base-modal title="修改昵称" class="name-modal" visible="{{nameModalVisible}}" footerHide>
+	<view class="content">
+		<view class="wrapper">
+			<input placeholder="请输入昵称" bindinput="updateUserInfoFrom" data-key="nickname" value="{{userInfoForm.nickname}}"></input>
+			<i class="iconfont icon-close" bindtap="clearInput" data-key="nickname"/>
+		</view>
+		<view 
+			class="tips {{userInfoForm.nickname == '' ? 'red' : nicknameUsable ? 'green' : 'red'}}"
+		>
+			{{ userInfoForm.nickname == '' ? '不能为空' : nicknameUsable ? '昵称可用' : '已有用户注册' }}
+		</view>
+	</view>
+	<view class="modal-footer">
+		<view class="btn" hover-class="hover" hover-start-time="0" hover-stay-time="100" bindtap="hideEditNickname">取消</view>
+		<view class="btn" hover-class="hover" hover-start-time="0" hover-stay-time="100" bindtap="_updateUserInfo" data-key="nickname">确定</view>
+	</view>
 </base-modal>
 
-<base-modal title="修改个性签名" class="declaration-modal" visible="{{declarationModalVisible}}">
-  <view class="content">
-    <textarea placeholder="请输入个性签名" maxlength="120"></textarea>
-    <view class="bottom">0/120<i class="iconfont icon-close"/></view>
-  </view>
+<base-modal title="修改个性签名" class="declaration-modal" visible="{{declarationModalVisible}}" bind:onOk="_updateUserInfo" data-key="declaration">
+	<view class="content">
+		<textarea placeholder="请输入个性签名" maxlength="120" bindinput="updateUserInfoFrom" data-key="declaration" value="{{userInfoForm.declaration}}"></textarea>
+		<view class="bottom">{{userInfoForm.declaration.length}}/120<i class="iconfont icon-close" bindtap="clearInput" data-key="declaration"/></view>
+	</view>
 </base-modal>
 
 <base-modal class="sex-modal" footerHide visible="{{sexModalVisible}}">
-  <view class="content">
-    <view 
-      class="sex-item target" 
+	<view class="content">
+		<view 
+      class="sex-item {{userInfoForm.sex == '1' ? 'target' : ''}}"  
+      bindtap="_updateUserInfo" data-key="sex" data-value ="1" 
       hover-class="hover" hover-start-time="0" hover-stay-time="100"
     >
-      男<i class="iconfont icon-selected"/>
-    </view>
-    <view 
-      class="sex-item" 
+			男
+    <i class="iconfont icon-selected" />
+		</view>
+		<view 
+      class="sex-item {{userInfoForm.sex == '0' ? 'target' : ''}}"  
+      bindtap="_updateUserInfo" data-key="sex" data-value ="0" 
       hover-class="hover" hover-start-time="0" hover-stay-time="100"
     >
-      女<i class="iconfont icon-selected"/>
-    </view>
-  </view>
+			女
+    <i class="iconfont icon-selected" />
+		</view>
+	</view>
 </base-modal>
 
-<base-modal title="请选择地区" class="region-modal" visible="{{regionModalVisible}}">
-  <view class="content">
-    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" bindchange="regionPickerChange" value="{{selectedRegionIdx}}">
-      <picker-view-column>
-        <view wx:for="{{region}}" wx:key="adcode" class="picker-view-column">{{item.name}}</view>
-      </picker-view-column>
-      <picker-view-column>
-        <view wx:for="{{currentCitys}}" wx:key="adcode" class="picker-view-column">{{item.name}}</view>
-      </picker-view-column>
-    </picker-view>
-  </view>
+<base-modal title="请选择地区" class="region-modal" visible="{{regionModalVisible}}" bind:onOk="_updateUserInfo" data-key="region">
+	<view class="content">
+		<picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" bindchange="regionPickerChange" data-flag="1" value="{{selectedRegionIdx}}">
+			<picker-view-column>
+				<view wx:for="{{region}}" wx:key="adcode" class="picker-view-column">{{item.name}}</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{currentRegions}}" wx:key="adcode" class="picker-view-column">{{item.name}}</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
 </base-modal>
 
-<base-modal title="设置QQ" class="QQ-modal" visible="{{QQModalVisible}}">
-  <view class="content">
-    <input placeholder="请输入QQ"></input>
-    <i class="iconfont icon-close"/>
-  </view>
+<base-modal title="设置QQ" class="QQ-modal" visible="{{QQModalVisible}}" bind:onOk="_updateUserInfo" data-key="qq">
+	<view class="content">
+		<input placeholder="请输入QQ" bindinput="updateUserInfoFrom" data-key="qq" value="{{userInfoForm.qq}}" type="number"></input>
+		<i class="iconfont icon-close" bindtap="clearInput" data-key="qq"/>
+	</view>
 </base-modal>

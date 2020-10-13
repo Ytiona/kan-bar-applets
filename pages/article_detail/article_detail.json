@@ -1,6 +1,11 @@
 {
   "usingComponents": {
     "comment-card": "/components/comment_card/comment_card",
-    "base-dropdown-menu": "/components/base_dropdown_menu/base_dropdown_menu"
+    "base-dropdown-menu": "/components/base_dropdown_menu/base_dropdown_menu",
+    "base-list-footer": "/components/base_list_footer/base_list_footer",
+    "base-modal": "/components/base_modal/base_modal",
+    "write-comment-box": "/components/write_comment_box/write_comment_box",
+    "comment-option": "/components/comment_option/comment_option",
+    "base-tag": "/components/base_tag/base_tag"
   }
 }

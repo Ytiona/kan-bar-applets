@@ -7,26 +7,48 @@
   z-index: -1;
 }
 
-.info {
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250rpx;
   margin: 30rpx 0;
   text-align: center;
   color: #fff;
 }
 
-.info .avatar-wrapper {
+.top .auth .auth-btn{
+  color: #6a95e8;
+  background: #fff;
+}
+
+.top .auth .tips {
+  font-size: 24rpx;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.top .info .avatar-wrapper {
   display: inline-block;
   width: 150rpx;
   height: 150rpx;
   border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #fff;
   background-color: #fff;
 }
 
-.info .name {
+.top .info .avatar-wrapper image {
+  width: 100%;
+  height: 100%;
+}
+
+.top .info .name {
   font-size: 30rpx;
   font-weight: 600;
 }
 
-.info .declaration {
+.top .info .declaration {
   font-size: 22rpx;
   font-weight: 300;
 }

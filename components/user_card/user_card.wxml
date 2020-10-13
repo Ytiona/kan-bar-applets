@@ -1,0 +1,16 @@
+<view class="uc-user-card">
+	<view class="uc-avatar" bindtap="onTapUserAvatar">
+		<image src="{{user.avatar}}" mode="widthFix"></image>
+	</view>
+	<view class="uc-middle">
+		<view class="uc-nickname">{{user.nickname}}</view>
+		<view class="uc-info">
+			<text>{{user.fans_count}}粉丝</text>
+			<text>{{user.article_count}}个帖子</text>
+		</view>
+		<view class="uc-declaration">{{user.declaration}}</view>
+	</view>
+	<view class="uc-follow-btn {{user.followed ? 'followed' : ''}}" bindtap="_followUser" data-user="{{user}}">
+		{{user.followed ? '已关注' : '关注'}}
+	</view>
+</view>

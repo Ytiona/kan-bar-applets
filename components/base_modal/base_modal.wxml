@@ -3,7 +3,7 @@
 		<view class="bm-title" wx:if="{{title}}">{{title}}</view>
 		<slot></slot>
 		<view class="bm-footer" wx:if="{{!footerHide}}">
-			<view class="bm-btn" hover-class="bm-hover" hover-start-time="0" hover-stay-time="100" bindtap="onCancel">取消</view>
+			<view class="bm-btn" hover-class="bm-hover" hover-start-time="0" hover-stay-time="100" bindtap="onCancel" wx:if="{{showCancel}}">取消</view>
 			<view class="bm-btn" hover-class="bm-hover" hover-start-time="0" hover-stay-time="100" bindtap="onOk">确定</view>
 		</view>
 	</view>

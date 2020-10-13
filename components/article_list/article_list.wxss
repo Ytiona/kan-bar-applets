@@ -1,0 +1,10 @@
+/* components/article_list/article_list.wxss */
+
+.article-list .article-item {
+  border-bottom: 18rpx solid #eee;
+  padding: 0 20rpx
+}
+
+.article-list .article-item:first-child {
+  border-top: 18rpx solid #eee;
+}

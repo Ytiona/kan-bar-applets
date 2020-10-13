@@ -1,6 +1,10 @@
 {
   "usingComponents": {
-    "base-dropdown-menu": "/components/base_dropdown_menu/base_dropdown_menu"
+    "base-tabs": "/components/base_tabs/base_tabs",
+    "base-dropdown-menu": "/components/base_dropdown_menu/base_dropdown_menu",
+    "article-list": "/components/article_list/article_list",
+    "base-list-footer": "/components/base_list_footer/base_list_footer",
+    "user-card": "/components/user_card/user_card"
   },
   "navigationBarTitleText": "搜索"
 }

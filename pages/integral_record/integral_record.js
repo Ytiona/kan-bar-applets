@@ -1,4 +1,5 @@
 // pages/integral_record/integral_record.js
+const listComponent = {};
 Page({
 
   /**
@@ -10,32 +11,26 @@ Page({
       { label: '支出', value: 'expend' },
       { label: '收入', value: 'income' }
     ],
-    integralRecords: [
-      {
-        title: '签到',
-        account: 3,
-        time: '2020.08.03 18:06'
-      },
-      {
-        title: '采纳回答',
-        account: -50,
-        time: '2020.08.03 18:06'
-      },
-      {
-        title: '签到',
-        account: 3,
-        time: '2020.08.03 18:06'
-      }
-    ]
+    currentTabIdx: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    listComponent.all = this.selectComponent('#all-list');
+    listComponent.expend = this.selectComponent('#expend-list');
+    listComponent.income = this.selectComponent('#income-list');
   },
 
+  onChangeNav(e) {
+    if(e.detail !== this.data.currentTabIdx) {
+      this.setData({
+        currentTabIdx: e.detail,
+      })
+    }
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -68,14 +63,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    // const { currentTabIdx, tabList } = this.data;
+    // listComponent[tabList[currentTabIdx].value].refresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    const { currentTabIdx, tabList } = this.data;
+    listComponent[tabList[currentTabIdx].value].loadMore();
   },
 
   /**

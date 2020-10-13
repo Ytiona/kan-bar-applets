@@ -18,7 +18,10 @@
     "pages/comment_reply/comment_reply",
     "pages/my_article/my_article",
     "pages/sign_in/sign_in",
-    "pages/developer_words/developer_words"
+    "pages/developer_words/developer_words",
+    "pages/test/test",
+    "pages/user_home/user_home",
+    "pages/user_friends/user_friends"
   ],
   "tabBar": {
     "color": "#c4c7ce",

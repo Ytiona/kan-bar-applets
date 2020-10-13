@@ -16,6 +16,11 @@ Page({
   },
 
   goRelease(e) {
+    wx.showModal({
+      title: '功能未开放',
+      showCancel: false
+    })
+    return;
     wx.navigateTo({
       url: `/pages/add_article/add_article?type=${e.currentTarget.dataset.type}`,
     })

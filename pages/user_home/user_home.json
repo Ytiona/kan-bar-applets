@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "article-list": "/components/article_list/article_list"
+  },
+  "navigationBarTitleText": "用户主页"
+}

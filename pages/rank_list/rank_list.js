@@ -1,9 +1,11 @@
 // pages/rank_list/rank_list.js
-const textMap = {
-  hot: ['热度榜', '震惊！原来大家都在看这些！'],
-  laud: ['点赞榜', '震惊！原来大家都在给这些点赞！'],
-  comment: ['评论榜', '震惊！原来大家都在议论这些！']
+const typeMap = {
+  hot: ['排行榜', '原来大家都在看这些！', 'view_count'],
+  laud: ['排行榜', '原来大家都在看这些！', 'laud_count'],
+  comment: ['评论榜', '震惊！原来大家都在议论这些！', 'comment_count']
 };
+import { LoadByPage } from '../../utils/util';
+import { getRankListArticle } from '../../api/article';
 Page({
 
   /**
@@ -11,55 +13,27 @@ Page({
    */
   data: {
     text: [],
-    rankList: [
-      {
-        images: ["https://hbimg.huabanimg.com/a463f0f26ca7a360c8445b6b100825c4441fbe9b9fe50f-1Dwynq_fw658/format/webp"],
-        title: "牛皮怪",
-        content: '我是一个牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪',
-        authorAvatar: "https://hbimg.huabanimg.com/a463f0f26ca7a360c8445b6b100825c4441fbe9b9fe50f-1Dwynq_fw658/format/webp",
-        authorName: "Shadow",
-        viewCount: 200,
-        laudCount: 1245,
-        commentCount: 212
-      },
-      {
-        images: ["https://hbimg.huabanimg.com/8cda8b01dd4f0359180d76e456ddcb501aa34ffb51311-1loUZx_fw658/format/webp"],
-        title: "牛皮怪",
-        content: '我是一个牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪',
-        authorAvatar: "https://hbimg.huabanimg.com/8cda8b01dd4f0359180d76e456ddcb501aa34ffb51311-1loUZx_fw658/format/webp",
-        authorName: "Shadow",
-        viewCount: 200,
-        laudCount: 1245,
-        commentCount: 212
-      },
-      {
-        images: [],
-        title: "《小张和小丽》",
-        content: '我是一个牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪',
-        authorAvatar: "https://hbimg.huabanimg.com/ee2345274c8da98587df2ad4dfebecff837cea553a455-2qcviQ_fw658/format/webp",
-        authorName: "Shadow",
-        viewCount: 200,
-        laudCount: 1245,
-        commentCount: 212
-      },
-      {
-        images: ["https://hbimg.huabanimg.com/8cda8b01dd4f0359180d76e456ddcb501aa34ffb51311-1loUZx_fw658/format/webp"],
-        title: "牛皮怪",
-        content: '我是一个牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪',
-        authorAvatar: "https://hbimg.huabanimg.com/8cda8b01dd4f0359180d76e456ddcb501aa34ffb51311-1loUZx_fw658/format/webp",
-        authorName: "Shadow",
-        viewCount: 200,
-        laudCount: 1245,
-        commentCount: 212
-      },
-    ],
+    rankList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ text: textMap[options.param] })
+    this.setData({ text: typeMap[options.param] });
+    this.sortBy = typeMap[options.param][2];
+    this.loadByPage = new LoadByPage({
+      apiFn: getRankListArticle,
+      vm: this,
+      dataFileid: 'rankList'
+    })
+    this.getData();
+  },
+
+  getData() {
+    this.loadByPage.getData({
+      sortBy: this.sortBy
+    });
   },
 
   /**
@@ -94,14 +68,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.loadByPage.refresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.loadByPage.loadMore();
   },
 
   /**

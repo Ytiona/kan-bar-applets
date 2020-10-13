@@ -1,4 +1,7 @@
 // pages/index/index.js
+import { getRecommendArticle } from '../../api/article';
+import { LoadByPage } from '../../utils/util';
+
 const app = getApp();
 Page({
 
@@ -7,54 +10,24 @@ Page({
    */
   data: {
     navHeight: app.globalData.navHeight * 2 + 20 ,
-    recommendList: [
-      {
-        images: ["https://hbimg.huabanimg.com/a463f0f26ca7a360c8445b6b100825c4441fbe9b9fe50f-1Dwynq_fw658/format/webp"],
-        title: "牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪",
-        content: '我是一个牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪',
-        authorAvatar: "https://hbimg.huabanimg.com/a463f0f26ca7a360c8445b6b100825c4441fbe9b9fe50f-1Dwynq_fw658/format/webp",
-        authorName: "Shadow",
-        viewCount: 200,
-        laudCount: 1245,
-        commentCount: 212
-      },
-      {
-        images: ["https://hbimg.huabanimg.com/8cda8b01dd4f0359180d76e456ddcb501aa34ffb51311-1loUZx_fw658/format/webp"],
-        title: "牛皮怪",
-        content: '我是一个牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪',
-        authorAvatar: "https://hbimg.huabanimg.com/8cda8b01dd4f0359180d76e456ddcb501aa34ffb51311-1loUZx_fw658/format/webp",
-        authorName: "Shadow",
-        viewCount: 200,
-        laudCount: 1245,
-        commentCount: 212
-      },
-      {
-        images: [],
-        title: "小张和小丽",
-        content: '我是一个牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪',
-        authorAvatar: "https://hbimg.huabanimg.com/ee2345274c8da98587df2ad4dfebecff837cea553a455-2qcviQ_fw658/format/webp",
-        authorName: "Shadow",
-        viewCount: 200,
-        laudCount: 1245,
-        commentCount: 212
-      },
-      {
-        images: ["https://hbimg.huabanimg.com/8cda8b01dd4f0359180d76e456ddcb501aa34ffb51311-1loUZx_fw658/format/webp"],
-        title: "牛皮怪",
-        content: '我是一个牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪牛皮怪',
-        authorAvatar: "https://hbimg.huabanimg.com/8cda8b01dd4f0359180d76e456ddcb501aa34ffb51311-1loUZx_fw658/format/webp",
-        authorName: "Shadow",
-        viewCount: 200,
-        laudCount: 1245,
-        commentCount: 212
-      },
-    ]
+    recommendList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.loadByPage = new LoadByPage({
+      vm: this,
+      apiFn: getRecommendArticle,
+      dataFileid: 'recommendList',
+      getDataFnName: 'getArticle'
+    });
+    this.getArticle();
+  },
+
+  getArticle() {
+    this.loadByPage.getData();
   },
 
   goSearch() {
@@ -70,10 +43,42 @@ Page({
   },
 
   lookMore() {
+    getApp().globalData.findPgTabValue = 'article';
     wx.switchTab({
-      url: '/pages/find/find',
+      url: '/pages/find/find'
     })
   },
+
+  gotoSignin() {
+    wx.navigateTo({
+      url: `/pages/sign_in/sign_in`,
+    })
+  },
+
+  gotoRank() {
+    wx.navigateTo({
+      url: `/pages/rank_list/rank_list?param=laud`,
+    })
+  },
+
+  gotoFollow() {
+    getApp().globalData.findPgTabValue = 'follow';
+    wx.switchTab({
+      url: `/pages/find/find`
+    })
+  },
+
+  gotoRelease() {
+    wx.showModal({
+      title: '功能未开放',
+      showCancel: false
+    })
+    return;
+    wx.navigateTo({
+      url: `/pages/add_article/add_article?type=0`,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -106,14 +111,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.loadByPage.refresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.loadByPage.loadMore();
   },
 
   /**

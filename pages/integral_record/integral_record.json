@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "base-tabs": "/components/base_tabs/base_tabs"
+    "base-tabs": "/components/base_tabs/base_tabs",
+    "integral_record_list": "/components/integral_record_list/integral_record_list"
   },
   "navigationBarTitleText": "积分记录"
 }

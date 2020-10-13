@@ -4,34 +4,34 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
-		"scopeDataCheck": false,
-		"coverView": true,
+		"urlCheck": true,
 		"es6": true,
+		"enhance": false,
 		"postcss": true,
-		"compileHotReLoad": false,
 		"preloadBackgroundData": false,
 		"minified": true,
-		"autoAudits": false,
 		"newFeature": true,
-		"uglifyFileName": false,
-		"uploadWithSourceMap": true,
-		"useIsolateContext": true,
+		"coverView": true,
 		"nodeModules": false,
-		"enhance": false,
-		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false,
+		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.12.0",
+	"libVersion": "2.12.1",
 	"appid": "wxc1481f55417579cd",
 	"projectname": "%E4%BE%83%E5%90%A7",
 	"debugOptions": {
@@ -86,10 +86,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "pages/add_article/add_article",
 					"pathName": "pages/add_article/add_article",
-					"query": "",
+					"query": "type=1",
 					"scene": null
 				},
 				{
@@ -180,6 +180,27 @@
 					"id": -1,
 					"name": "pages/developer_words/developer_words",
 					"pathName": "pages/developer_words/developer_words",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/test/test",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user_home/user_home",
+					"pathName": "pages/user_home/user_home",
+					"query": "type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user_friends/user_friends",
+					"pathName": "pages/user_friends/user_friends",
 					"scene": null
 				}
 			]

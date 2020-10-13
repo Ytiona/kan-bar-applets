@@ -1,12 +1,12 @@
 <view class="title">
-  <input placeholder="请输入标题"></input>
+  <input placeholder="请输入标题" model:value="{{title}}"></input>
 </view>
 
 <view class="detail">
-  <textarea placeholder="请输入详细反馈内容"></textarea>
+  <textarea placeholder="请输入详细反馈内容" model:value="{{content}}"></textarea>
 </view>
 
-<view class="primary-btn submit-btn">提交</view>
+<view class="primary-btn submit-btn" bindtap="submit">提交</view>
 
 <view class="my-records" bindtap="goMyFeedback">我的反馈记录</view>
 

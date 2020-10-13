@@ -1,24 +1,46 @@
-<view class="cc-comment-item">
+<view class="cc-comment-item" hover-class="hover" hover-start-time="0" hover-stay-time="100" bindtap="onTapComment">
 	<view class="cc-top">
 		<view class="cc-info">
-			<view class="cc-avatar-wrapper">
-				<image mode="widthFix"></image>
+			<view class="cc-avatar-wrapper" catchtap="onTapUserAvatar" hover-stop-propagation>
+				<image mode="aspectFill" src="{{comment.avatar}}" lazy-load></image>
 			</view>
 			<view>
-				<view class="cc-name">若隐若离</view>
-				<view class="cc-time">2020.08.03 15:37</view>
+				<view class="cc-name">{{comment.nickname}}</view>
+				<view class="cc-time">{{comment.relativeTime}}</view>
 			</view>
 		</view>
-		<view class="cc-r">
-			<i class="iconfont icon-laud" />1250
+		<view class="cc-laud {{comment.lauded ? 'lauded' : ''}}" catchtap="onLaud" hover-stop-propagation>
+			<view class="icon-wrapper">
+				<i class="iconfont {{comment.lauded ? 'icon-lauded' : 'icon-laud'}}" />
+			</view>
+			<view hidden="{{!comment.laud_count}}">{{comment.laud_count}}</view>
 		</view>
 	</view>
-	<view class="cc-content">评论内容评论内容评论内容评论内容评论内容</view>
 	<view class="cc-bottom">
-		<view class="cc-btn-wrapper"><view class="cc-adopt-btn" wx:if="{{showAdoptBtn}}">采纳此回答</view></view>
-		<view class="cc-reply" bindtap="goCommentReply" hover-class="cc-hover" hover-start-time="0" hover-stay-time="100" wx:if="{{showReplay}}">
-			1156条回复<i class="iconfont icon-more" />
+		<view class="cc-content">{{comment.content}}</view>
+		<view class="cc-pic-list" wx:if="{{comment.images.length}}" hover-stop-propagation>
+			<block wx:for="{{comment.images}}" wx:key="item">
+				<image src="{{item}}" 
+					mode="{{comment.images.length == 1 ? 'widthFix' : 'aspectFill'}}" 
+					class="{{comment.images.length == 1 ? 'cc-col1' : 'cc-col3'}}" 
+					data-index="{{index}}"
+					catchtap="previewImage"
+					lazy-load
+				></image>
+			</block>
 		</view>
+		<view class="cc-target-comment" wx:if="{{comment.targetComment}}">
+			<text class="cc-target-nickname">{{comment.targetComment.nickname}}</text>
+			<text class="cc-target-content">：{{comment.targetComment.content}}</text>
+		</view>
+		<view class="cc-footer">
+			<view class="cc-btn-wrapper">
+				<view class="cc-adopt-btn" wx:if="{{showAdoptBtn}}" hover-class="hover" hover-start-time="0" hover-stay-time="100" hover-stop-propagation catchtap="onTapAdopte">采纳此回答</view>
+			</view>
+			<view class="cc-reply" catchtap="goCommentReply" hover-class="cc-hover" hover-start-time="0" hover-stay-time="100" hover-stop-propagation wx:if="{{showReplay && comment.reply_count}}">
+				{{comment.reply_count}}条回复<i class="iconfont icon-more" />
+			</view>
+		</view>
+		<image class="cc-adopted" src="/assets/images/adopted.png" mode="widthFix" wx:if="{{adopted}}"></image>
 	</view>
-	<image class="cc-adopted" src="/assets/images/adopted.png" mode="widthFix" wx:if="{{adopted}}"></image>
 </view>

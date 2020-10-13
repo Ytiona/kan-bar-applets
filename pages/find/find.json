@@ -1,5 +1,10 @@
 {
   "usingComponents": {
-    "base-tabs": "/components/base_tabs/base_tabs"
-  }
+    "base-tabs": "/components/base_tabs/base_tabs",
+    "article-list": "/components/article_list/article_list",
+    "classify-article-list": "/components/classify_article_list/classify_article_list"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#454545",
+  "navigationBarTitleText": "发现"
 }

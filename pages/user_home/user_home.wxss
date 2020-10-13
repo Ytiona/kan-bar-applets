@@ -1,0 +1,103 @@
+.top-wrapper {
+  padding: 20rpx;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+}
+
+.top .avatar {
+  display: flex;
+}
+
+.top .avatar image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+.top .r {
+  flex: 1;
+  margin-left: 240rpx;
+}
+
+.top .data {
+  display: flex;
+}
+
+.top .data .item {
+  flex: 1;
+  text-align: center;
+}
+
+.top .data .item:not(:first-child) {
+  border-left: 1rpx solid #eee;
+}
+
+.top .data .item .num {
+  font-size: 26rpx;
+  color: #666;
+  font-weight: bold;
+}
+
+.top .data .item .title {
+  font-size: 24rpx;
+  color: #8f8f8f;
+}
+
+.follow-btn {
+  margin: 0 auto;
+  margin-top: 20rpx;
+  width: 320rpx;
+  height: 50rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background-color: #6a95e8;
+}
+
+.follow-btn.followed {
+  background-color: #eee;
+  color: #8f8f8f;
+}
+
+.info {
+  margin-top: 30rpx;
+}
+
+.info .nickname {
+  margin-right: 10rpx;
+  font-size: 30rpx;
+  color: #454545;
+  font-weight: bold;
+}
+
+.info .iconfont {
+  margin-right: 10rpx;
+  font-size: 26rpx;
+}
+
+.info .iconfont.icon-male {
+  color: #6a95e8;
+}
+
+.info .iconfont.icon-female {
+  color: #e86a6a;
+}
+
+.info .city {
+  font-size: 24rpx;
+  color: #8f8f8f;
+}
+
+.declaration,
+.QQ {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #8f8f8f;
+}
+

@@ -1,42 +1,94 @@
 <view class="top">
 	<view class="info">
-		<view class="avatar-wrapper">
-			<image mode="widthFix"></image>
+		<view class="avatar-wrapper" bindtap="onTapUserAvatar">
+			<image mode="aspectFill" src="{{article.avatar}}"></image>
 		</view>
 		<view>
-			<view class="name">若隐若离</view>
-			<view class="declaration">交友宣言</view>
+			<view class="name">{{article.nickname}}</view>
+			<view class="declaration">{{article.declaration}}</view>
 		</view>
 	</view>
-	<view class="r">
-		<view class="time">2020.08.03 15:37</view>
-		<view class="view-count"><i class="iconfont icon-eye" />1250</view>
+	<view class="follow-btn {{article.followed ? 'followed' : ''}}" wx:if="{{!article.isOwn}}" bindtap="_followUser">
+		{{article.followed ? '已关注' : '关注'}}
 	</view>
 </view>
 
 <view class="content">
-	<view class="title">我是标题我是标题</view>
-	<view class="text">我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文</view>
-	<view class="pic-list">
-		<block wx:for="{{atricle.images}}" wx:key="index">
-			<image src="{{item}}" mode="widthFix"></image>
+	<view class="title">{{article.title}}</view>
+	<view class="text">{{article.content}}</view>
+	<view class="pic-list" wx:if="{{article.images.length}}">
+		<block wx:for="{{article.images}}" wx:key="item">
+			<image src="{{item}}" mode="{{article.images.length == 1 ? 'widthFix' : 'aspectFill'}}" class="{{article.images.length == 1 ? 'col1' : article.images.length < 5 ? 'col2' : 'col3'}}" bindtap="previewImage" data-index="{{index}}"></image>
 		</block>
 	</view>
+	<view class="info">
+		<view class="time">{{article.relativeTime}}</view>
+		<view class="view-count"><i class="iconfont icon-eye" />{{article.view_count}}</view>
+	</view>
+	<view class="tags">
+		<view class="tag-item" wx:for="{{tags}}" wx:key="index">
+			<base-tag color="{{item.color}}" icon="{{item.icon}}">{{item.text}}</base-tag>
+		</view>
+	</view>
+	<view class="offered" wx:if="{{article.offered_integral}}">悬赏{{article.offered_integral}}积分</view>
 </view>
 
 <view class="comment">
-	<base-dropdown-menu menuList="{{commentSortRule}}" isEmbed>
-		<view slot="left" class="title">评论(1250)</view>
+	<base-dropdown-menu menuList="{{commentSortRule}}" isEmbed bind:onChange="onChangeSortBy">
+		<view slot="left" class="title">评论({{commentTotal}})</view>
 	</base-dropdown-menu>
 	<view class="comment-list">
-		<view wx:for="{{commentList}}" wx:key="index" class="comment-card">
-			<comment-card/>
+		<view wx:for="{{commentList}}" wx:key="id" class="comment-card" bindtap="onTapComment" data-comment="{{item}}">
+			<comment-card comment="{{item}}" showAdoptBtn="{{article.isOwn && article.adopte_target_id == -1 && article.article_type != 0}}" bind:onTapAdopte="onTapAdopte" data-id="{{item.id}}" adopted="{{article.adopte_target_id == item.id}}" />
 		</view>
 	</view>
-	<view class="bottom"  hover-class="hover" hover-start-time="0" hover-stay-time="100" bindtap="showMoreComment">更多评论<i class="iconfont icon-more"/></view>
+	<base-list-footer list="{{commentList}}" haveMore="{{haveMore}}" loadingMore="{{loadingMore}}" />
 </view>
 
-<view class="operation">
-  <view class="laud"><i class="iconfont icon-laud"/>1250</view>
-  <view class="input-box"><input placeholder="写评论..."></input></view>
+<view class="operation" style="bottom: {{operationBottom}}px;">
+	<view class="container">
+		<view style="display: {{writeCommentFocus ? 'none' : 'flex'}}">
+			<view class="laud {{article.lauded ? 'lauded' : ''}}" bindtap="onLaudArticle">
+				<view class="icon-wrapper">
+					<i class="iconfont {{article.lauded ? 'icon-lauded' : 'icon-laud'}}" />
+				</view>
+				<view hidden="{{!article.laud_count}}">{{article.laud_count}}</view>
+			</view>
+			<view class="focus-btn" bindtap="onWriteComment">写评论...</view>
+		</view>
+		<view class="write-comment" hidden="{{!writeCommentFocus}}">
+			<view class="imgs" hidden="{{!commentImages.length}}">
+				<scroll-view scroll-x enable-flex>
+					<view class="wrapper">
+						<view class="item" wx:for="{{commentImages}}" wx:key="item">
+							<image src="{{item.path}}"></image>
+							<i class="iconfont icon-close" bindtap="onDeleteImg" data-index="{{index}}" />
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+			<view class="wrapper">
+				<view 
+					class="upload-pic-btn" 
+					bindtap="onChooseImg" 
+					hover-class="hover" hover-start-time="0" hover-stay-time="100"
+				>
+					<i class="iconfont icon-pic" />
+				</view>
+				<textarea 
+					placeholder="请输入评论" 
+					auto-height maxlength="{{500}}" 
+					bindblur="onBlurWriteComment" 
+					focus="{{writeCommentFocus}}" 
+					bindfocus="onFocusWriteComment" 
+					model:value="{{commentContent}}" 
+					show-confirm-bar="{{false}}" 
+					hold-keyboard
+				></textarea>
+				<view class="release-btn {{ commentContent !== '' || commentImages.length ? '' : 'disable' }}" bindtap="onReleaseComment">发表</view>
+			</view>
+		</view>
+	</view>
 </view>
+
+<comment-option visible="{{commentOptionVisible}}" bind:onReplyComment="replyComment" bind:onCopyComment="copyComment" showDeleteBtn="{{curSelComment.isOwn}}" bind:onDeleteComment="onDeleteComment" />

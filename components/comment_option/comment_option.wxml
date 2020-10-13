@@ -1,0 +1,9 @@
+<base-modal visible="{{visible}}" footerHide>
+	<view 
+		bindtap="deleteComment" class="comment-option-item" 
+		hover-class="hover" hover-start-time="0" hover-stay-time="100" 
+		hidden="{{!showDeleteBtn}}"
+	>删除评论</view>
+	<view bindtap="replyComment" class="comment-option-item" hover-class="hover" hover-start-time="0" hover-stay-time="100">回复评论</view>
+	<view bindtap="copyComment" class="comment-option-item" hover-class="hover" hover-start-time="0" hover-stay-time="100">复制评论</view>
+</base-modal>

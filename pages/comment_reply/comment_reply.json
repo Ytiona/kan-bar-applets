@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "comment-card": "/components/comment_card/comment_card"
+    "comment-card": "/components/comment_card/comment_card",
+    "write-comment-box": "/components/write_comment_box/write_comment_box",
+    "comment-option": "/components/comment_option/comment_option"
   },
   "navigationBarTitleText": "回复"
 }

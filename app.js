@@ -1,4 +1,4 @@
-
+import { debounce, throttle } from './utils/util';
 
 //app.js
 App({
@@ -17,7 +17,8 @@ App({
     })
   },
   globalData: {
-    navHeight: 0,//设备顶部高度
-    region: [],//行政区
+    navHeight: 0,                     //设备顶部高度
+    region: [],                       //行政区,
+    isConnected: true,               //网络是否断开
   }
 })

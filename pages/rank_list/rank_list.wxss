@@ -22,6 +22,10 @@
   border-top: 18rpx solid #eee;
 }
 
+.content .item:last-child {
+  border-bottom: 18rpx solid #eee;
+}
+
 .content .item .rank {
   width: 50rpx;
   height: 50rpx;

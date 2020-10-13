@@ -1,0 +1,38 @@
+<view class="top-wrapper">
+	<view class="top">
+		<view class="avatar">
+			<image src="{{userInfo.avatar}}" mode="widthFix"></image>
+		</view>
+		<view class="r">
+			<view class="data">
+				<view class="item" bindtap="lookFriends" data-param="follow">
+					<view class="num">{{userInfo.follow_count || 0}}</view>
+					<view class="title">关注</view>
+				</view>
+				<view class="item" bindtap="lookFriends" data-param="fans">
+					<view class="num">{{userInfo.fans_count || 0}}</view>
+					<view class="title">粉丝</view>
+				</view>
+				<view class="item">
+					<view class="num">{{userInfo.integral || 0}}</view>
+					<view class="title">积分</view>
+				</view>
+			</view>
+			<view class="follow-btn {{followed ? 'followed' : ''}}" wx:if="{{!isOwn}}" bindtap="_followUser">
+				{{followed ? '已关注' : '关注'}}
+			</view>
+		</view>
+	</view>
+
+	<view class="info">
+		<text class="nickname">{{userInfo.nickname}}</text>
+		<i wx:if="{{userInfo.sex !== -1}}" class="iconfont {{userInfo.sex == 1 ? 'icon-male' : 'icon-female'}}" />
+		<text class="city">{{userInfo.region}}</text>
+	</view>
+
+	<view class="declaration" hidden="{{userInfo.declaration === ''}}">{{userInfo.declaration}}</view>
+
+	<view class="QQ" hidden="{{userInfo.qq === ''}}">QQ：{{userInfo.qq}}</view>
+</view>
+
+<article-list articleList="{{articleList}}" haveMore="{{haveMore}}" loadingMore="{{loadingMore}}" bind:onDeleteArticle="onPullDownRefresh" />

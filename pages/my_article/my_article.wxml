@@ -1,3 +1,1 @@
-<view wx:for="{{recommendList}}" wx:key="index" class="article-item">
-	<article-card article="{{item}}" />
-</view>
+<article-list articleList="{{articleList}}" haveMore="{{haveMore}}" loadingMore="{{loadingMore}}" bind:onDeleteArticle="onPullDownRefresh"/>

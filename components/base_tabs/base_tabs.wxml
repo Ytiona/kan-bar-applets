@@ -1,5 +1,5 @@
 <view class="bt-tabs">
-  <view class="bt-nav">
+  <view class="bt-nav" style="top: {{topOffset}}rpx;">
     <view
       class="bt-nav-item {{ currentIndex == index ? 'target' : '' }}"
       wx:for="{{tabList}}" wx:key="index"

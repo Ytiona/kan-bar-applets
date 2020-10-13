@@ -1,0 +1,9 @@
+<view class="list">
+  <block hidden="{{!integralRecords.length}}">
+    <view class="item" wx:for="{{integralRecords}}" wx:key="id">
+      <view class="title">{{recordTypeMap[item.type]}}<text class="{{item.integral > 0 ? 'green' : 'red'}}">{{item.integral}}</text></view>
+      <view class="time">{{item.relativeTime}}</view>
+    </view>
+  </block>
+  <base-list-footer list="{{integralRecords}}" haveMore="{{haveMore}}" loadingMore="{{loadingMore}}"/>
+</view>

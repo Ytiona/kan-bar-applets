@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "article-card": "/components/article_card/article_card"
+    "article-list": "/components/article_list/article_list"
   },
-  "navigationBarTitleText": "我的帖子"
+  "navigationBarTitleText": "我的帖子",
+  "enablePullDownRefresh": true
 }

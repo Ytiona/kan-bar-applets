@@ -2,5 +2,7 @@
   "usingComponents": {
     "article-card": "/components/article_card/article_card"
   },
-  "navigationBarTitleText": "排行榜"
+  "navigationBarTitleText": "排行榜",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#454545"
 }

@@ -1,49 +1,57 @@
 <image class="bg" src="/assets/images/person_bg.png" mode="widthFix"></image>
 
-<view class="info">
-  <view class="avatar-wrapper"></view>
-  <view class="name">若隐若离</view>
-  <view class="declaration">我是不定时上班怪，会被不定时上班</view>
+<view class="top">
+  <view class="auth" wx:if="{{!userInfo.avatar && !userInfo.nickname}}">
+    <view><button class="auth-btn" open-type="getUserInfo" size="mini" bindgetuserinfo="gotUserInfo" lang="zh_CN">发起授权</button></view>
+    <view class="tips">授权获取您的微信昵称和头像</view>
+  </view>
+	<view class="info" wx:else>
+		<view class="avatar-wrapper">
+      <image src="{{userInfo.avatar}}" mode="aspectFill"></image>
+    </view>
+		<view class="name">{{userInfo.nickname}}</view>
+		<view class="declaration">{{userInfo.declaration || '暂无个性签名'}}</view>
+	</view>
 </view>
 
 <view class="count">
-  <view class="l">
-    <view class="num">45163</view>
-    <view class="title">积分</view>
-  </view>
-  <view class="c">
-    <view class="num">45163</view>
-    <view class="title">获赞数</view>
-  </view>
-  <view class="r">
-    <view class="num">45163</view>
-    <view class="title">发帖数</view>
-  </view>
+	<view class="l" bindtap="gotoPage" data-param="integral_record">
+		<view class="num">{{userInfo.integral}}</view>
+		<view class="title">积 分</view>
+	</view>
+	<view class="c" bindtap="lookFriends" data-param="follow">
+		<view class="num">{{userInfo.follow_count}}</view>
+		<view class="title">关 注</view>
+	</view>
+	<view class="r" bindtap="lookFriends" data-param="follow">
+		<view class="num">{{userInfo.fans_count}}</view>
+		<view class="title">粉 丝</view>
+	</view>
 </view>
 
 <view class="btn-wrapper">
-  <view class="item" bindtap="gotoPage" data-param="sign_in">
-    <image src="/assets/person_btn_icon/signin.png" mode="widthFix"></image>
-    <view class="title">今日签到</view>
-  </view>
-  <view class="item" bindtap="gotoPage" data-param="integral_record">
-    <image src="/assets/person_btn_icon/integral_record.png" mode="widthFix"></image>
-    <view class="title">积分记录</view>
-  </view>
-  <view class="item" bindtap="gotoPage" data-param="my_info">
-    <image src="/assets/person_btn_icon/my_info.png" mode="widthFix"></image>
-    <view class="title">我的资料</view>
-  </view>
-  <view class="item" bindtap="gotoPage" data-param="my_article">
-    <image src="/assets/person_btn_icon/my_article.png" mode="widthFix"></image>
-    <view class="title">我的帖子</view>
-  </view>
-  <view class="item" bindtap="gotoPage" data-param="feedback">
-    <image src="/assets/person_btn_icon/idea.png" mode="widthFix"></image>
-    <view class="title">意见反馈</view>
-  </view>
-  <view class="item" bindtap="gotoPage" data-param="about">
-    <image src="/assets/person_btn_icon/about.png" mode="widthFix"></image>
-    <view class="title"><text decode="nbsp">关&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;于</text></view>
-  </view>
+	<view class="item" bindtap="gotoPage" data-param="sign_in">
+		<image src="/assets/person_btn_icon/signin.png" mode="widthFix"></image>
+		<view class="title">今日签到</view>
+	</view>
+	<view class="item" bindtap="gotoPage" data-param="integral_record">
+		<image src="/assets/person_btn_icon/integral_record.png" mode="widthFix"></image>
+		<view class="title">积分记录</view>
+	</view>
+	<view class="item" bindtap="gotoPage" data-param="my_info">
+		<image src="/assets/person_btn_icon/my_info.png" mode="widthFix"></image>
+		<view class="title">我的资料</view>
+	</view>
+	<view class="item" bindtap="gotoPage" data-param="my_article">
+		<image src="/assets/person_btn_icon/my_article.png" mode="widthFix"></image>
+		<view class="title">我的帖子</view>
+	</view>
+	<view class="item" bindtap="gotoPage" data-param="feedback">
+		<image src="/assets/person_btn_icon/idea.png" mode="widthFix"></image>
+		<view class="title">意见反馈</view>
+	</view>
+	<view class="item" bindtap="gotoPage" data-param="about">
+		<image src="/assets/person_btn_icon/about.png" mode="widthFix"></image>
+		<view class="title"><text decode="nbsp">关&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;于</text></view>
+	</view>
 </view>

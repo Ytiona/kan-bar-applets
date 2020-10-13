@@ -1,6 +1,35 @@
-<base-tabs tabList="{{tabList}}"></base-tabs>
-
-<view class="search-box" bindtap="goSearch" hidden="{{currentNav != 0}}">
-	<i class="iconfont icon-search" />
-	<text class="tips">搜索帖子</text>
-</view>
+<base-tabs tabList="{{tabList}}" bind:on-change="toggelNav" currentIndex="{{currentTabIndex}}">
+	<view slot="follow">
+		<article-list articleList="{{followArticleList}}" loadMore="{{f-loadingMore}}" haveMore="{{f-haveMore}}"/>
+	</view>
+	<view slot="article">
+		<view class="aux">
+			<view class="tags">
+				<scroll-view enable-flex scroll-x>
+					<view class="wrapper">
+						<view 
+							class="tag-item {{currentTagIdx == index ? 'target' : ''}}" 
+							wx:for="{{tags}}" wx:key="index"
+							bindtap="onTapTag" data-index="{{index}}"
+						>{{item.text}}</view>
+					</view>
+				</scroll-view>
+			</view>
+			<view class="search-wrapper">
+				<view class="search-box" bindtap="goSearch">
+					<i class="iconfont icon-search" />
+					<text class="tips">搜索</text>
+				</view>
+			</view>
+		</view>
+		<view class="list-wrapper">
+			<classify-article-list type="0" id="article-list" tag="{{tags[currentTagIdx].text}}"/>
+		</view>
+	</view>
+	<view slot="seekPic">
+		<classify-article-list type="1" id="seekPic-list" />
+	</view>
+	<view slot="lookExpression">
+		<classify-article-list type="2" id="lookExpression-list" />
+	</view>
+</base-tabs>

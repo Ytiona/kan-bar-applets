@@ -1,6 +1,9 @@
 {
   "usingComponents": {
-    "article-card": "/components/article_card/article_card"
+    "base-list-footer": "/components/base_list_footer/base_list_footer",
+    "article-list": "/components/article_list/article_list"
   },
-  "navigationStyle": "custom"
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#454545"
 }

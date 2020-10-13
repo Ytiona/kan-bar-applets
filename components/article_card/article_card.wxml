@@ -1,16 +1,22 @@
 <view class="ac-card" bindtap="lookDetail">
-	<view class="ac-title">{{article.title}}</view>
+	<view class="ac-top">
+		<view class="ac-title">{{article.title}}</view>
+		<view class="ac-menu" catchtap="onTapMenu" wx:if="{{article.isOwn && showMenu}}"><i class="iconfont icon-more-handle"/></view>
+	</view>
 	<view class="ac-info">
 		<view class="ac-avatar-wrapper">
-			<image src="{{article.authorAvatar}}" class="ac-avatar"></image>
+			<image src="{{article.avatar}}" class="ac-avatar" mode="aspectFill" lazy-load></image>
 		</view>
 		<view class="ac-r">
-			<view class="ac-author-name">{{article.authorName}}</view>
+			<view class="ac-author-name">{{article.nickname}}</view>
 		</view>
 	</view>
 	<view class="ac-content">
 		<view class="ac-text">{{article.content}}</view>
-		<view class="ac-pic" wx:if="{{article.images[0]}}"><image src="{{article.images[0]}}" mode="aspectFill" class="ac-cover"></image></view>
+		<view class="ac-pic" wx:if="{{article.images[0]}}"><image src="{{article.images[0]}}" mode="aspectFill" class="ac-cover" lazy-load></image></view>
 	</view>
-	<view class="ac-data">1.2万赞 · 202条评论</view>
+	<view class="ac-footer">
+		<view class="ac-data">{{ article.laud_count }}赞 · {{article.comment_count}}条评论</view>
+		<view class="ac-offered" wx:if="{{article.offered_integral}}">悬赏{{article.offered_integral}}积分</view>
+	</view>
 </view>

@@ -1,0 +1,1 @@
+<article-list articleList="{{articleList}}" haveMore="{{haveMore}}" loadingMore="{{loadingMore}}" bind:onDeleteArticle="refresh"/>

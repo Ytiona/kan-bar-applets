@@ -1,9 +1,9 @@
 <view class="top">
 	<view class="info">
-		<image class="avatar"></image>
-		<text class="name">若隐若离</text>
+		<image class="avatar" src="{{userInfo.avatar}}"></image>
+		<text class="name">{{userInfo.nickname}}</text>
 	</view>
-	<view class="release-btn primary-btn {{ title === '' || content === '' ? 'disable' : '' }}">发布</view>
+	<view class="release-btn primary-btn {{ title === '' || content === '' ? 'disable' : '' }}" bindtap="release">发布</view>
 </view>
 
 <view class="word">
@@ -11,32 +11,42 @@
 	<textarea class="content frame" model:value="{{content}}" placeholder="请输入内容" maxlength="-1" auto-height></textarea>
 </view>
 
-<view class="offered" hidden="{{type === 'normal'}}">
-	<i class="iconfont icon-integral" />
-	<text>悬赏积分：</text>
-	<input class="frame" placeholder="请设置悬赏积分" type="number"></input>
+<view class="offered" hidden="{{type == 0}}">
+	<view class="wrapper">
+		<i class="iconfont icon-integral" />
+		<text>悬赏积分：</text>
+		<input class="frame" placeholder="请设置悬赏积分" type="number" model:value="{{offeredIntegral}}" disabled="{{isEdit}}"></input>
+	</view>
+	<view class="tips" wx:if="{{isEdit}}">*悬赏积分不可更改</view>
 </view>
 
 <view class="pic-wrapper">
 	<block wx:for="{{images}}" wx:key="item">
 		<view class="img-wrapper">
-			<image class="img" src="{{item}}" mode="aspectFill" bindtap="onPreviewImage" data-imgsrc="{{item}}"></image>
+			<image class="img" src="{{item.path}}" mode="aspectFill" bindtap="onPreviewImage" data-imgsrc="{{item.path}}"></image>
 			<i class="iconfont icon-close" bindtap="onDeleteImg" data-index="{{index}}" />
 		</view>
 	</block>
-	<view class="add-img" bindtap="onChooseImg" hidden="{{images.length > 8}}">
+	<view class="add-img" bindtap="onChooseImg" wx:if="{{images.length < MAX_IMG_NUM}}">
 		<i class="iconfont icon-camera" />
 		<view>添加照片</view>
+		<view class="tips">5M以内</view>
 	</view>
 </view>
 
-<view class="footer" hidden="{{type !== 'normal'}}">
-	<view class="add_tag">
-		<i class="iconfont icon-tag" />添加标签
+<view class="footer" hidden="{{type != 0}}">
+	<view class="tag-wrapper">
+		<view class="tag-item" wx:for="{{selectedTagList}}" wx:key="index">
+			<base-tag color="{{item.color}}" icon="{{item.icon}}" size="default" closable bind:onClose="deleteTag" data-text="{{item.text}}">{{item.text}}</base-tag>
+		</view>
+		<view class="add_tag" bindtap="addTag">
+			<i class="iconfont icon-tag" />添加标签
+		</view>
 	</view>
+	<view class="tips">添加标签更容易让别人看到你的帖子哦~</view>
 </view>
 
-<base-modal visible="{{addTagVisible}}" title="添加标签" footerHide>
+<base-modal visible="{{addTagVisible}}" title="添加标签" showCancel="{{false}}">
 	<view class="add-tag-container">
 		<view class="popular-tag">
 			<view class="title">常用标签：</view>
@@ -60,8 +70,5 @@
 				</view>
 			</view>
 		</view>
-	</view>
-	<view class="footer">
-		<view class="ok-btn" hover-class="hover" hover-start-time="0" hover-stay-time="100">确定</view>
 	</view>
 </base-modal>

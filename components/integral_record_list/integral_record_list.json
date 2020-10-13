@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "base-list-footer": "/components/base_list_footer/base_list_footer"
+  }
+}

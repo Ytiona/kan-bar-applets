@@ -15,6 +15,10 @@ Component({
     footerHide: {
       type: Boolean,
       value: false
+    },
+    showCancel: {
+      type: Boolean,
+      value: true
     }
   },
 

@@ -1,8 +1,11 @@
-<base-tabs tabList="{{tabList}}"></base-tabs>
-
-<view class="list">
-  <view class="item" wx:for="{{integralRecords}}" wx:key="index">
-    <view class="title">{{item.title}}<text class="{{item.account > 0 ? 'green' : 'red'}}">{{item.account}}</text></view>
-    <view class="time">{{item.time}}</view>
+<base-tabs tabList="{{tabList}}" bind:on-change="onChangeNav">
+  <view slot="all">
+    <integral_record_list type="all" id="all-list"/>
   </view>
-</view>
+  <view slot="expend">
+    <integral_record_list type="expend" id="expend-list"/>
+  </view>
+  <view slot="income">
+    <integral_record_list type="income" id="income-list"/>
+  </view>
+</base-tabs>

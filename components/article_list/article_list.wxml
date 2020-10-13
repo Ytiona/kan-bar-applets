@@ -1,0 +1,7 @@
+<view class="article-list">
+	<view wx:for="{{articleList}}" wx:key="id" class="article-item">
+    <article-card article="{{item}}" bind:onTapMenu="onTapMenu"/>
+  </view>
+</view>
+
+<base-list-footer list="{{articleList}}" haveMore="{{haveMore}}" loadingMore="{{loadingMore}}"/>

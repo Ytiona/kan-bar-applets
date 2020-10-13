@@ -3,10 +3,10 @@
 </view>
 
 <view class="header" style="margin-top: {{navHeight + 66}}rpx">
-	<i class="iconfont icon-notice" />
+	<!-- <i class="iconfont icon-notice" /> -->
 	<view class="search-box" bindtap="goSearch">
 		<i class="iconfont icon-search" />
-		<text class="tips">搜索帖子</text>
+		<text class="tips">搜索内容</text>
 	</view>
 </view>
 
@@ -14,15 +14,30 @@
 	<image src="/assets/images/banner.jpg" mode="widthFix"></image>
 </view>
 
-<view class="list-btn-wrapper">
-	<view class="hot-list" bindtap="goRankList" data-param="hot">
-		<image src="../../assets/images/hot_list.png" mode="widthFix"></image>
+<view class="crux-wrapper">
+	<view class="item" bindtap="gotoSignin">
+		<view class="icon">
+			<i class="iconfont icon-signin"/>
+		</view>
+		<view>签到</view>
 	</view>
-	<view class="laud-list" bindtap="goRankList" data-param="laud">
-		<image src="../../assets/images/laud_list.png" mode="widthFix"></image>
+	<view class="item" bindtap="gotoRank">
+		<view class="icon">
+			<i class="iconfont icon-rank"/>
+		</view>
+		<view>排行榜</view>
 	</view>
-	<view class="comment-list" bindtap="goRankList" data-param="comment">
-		<image src="../../assets/images/comment_list.png" mode="widthFix"></image>
+	<view class="item" bindtap="gotoFollow">
+		<view class="icon">
+			<i class="iconfont icon-follow"/>
+		</view>
+		<view>关注</view>
+	</view>
+	<view class="item" bindtap="gotoRelease">
+		<view class="icon">
+			<i class="iconfont icon-release-fill"/>
+		</view>
+		<view>发帖</view>
 	</view>
 </view>
 
@@ -32,8 +47,6 @@
 		<view class="more" bindtap="lookMore">更多<i class="iconfont icon-more"/></view>
 	</view>
 	<view class="content">
-		<view wx:for="{{recommendList}}" wx:key="index" class="article-item">
-			<article-card article="{{item}}"/>
-		</view>
+		<article-list articleList="{{recommendList}}" haveMore="{{haveMore}}" loadingMore="{{loadingMore}}" bind:onDeleteArticle="onPullDownRefresh"/>
 	</view>
 </view>

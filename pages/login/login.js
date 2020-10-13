@@ -1,3 +1,4 @@
+import { loginApi, getUserInfo } from '../../api/user';
 Page({
 
   /**
@@ -25,13 +26,14 @@ Page({
   checkSession() {
     wx.checkSession({
       success: res => {
-        // console.log(wx.getStorageSync('ticket'));
-        if (!wx.getStorageSync('ticket')) {
+        if (!wx.getStorageSync('token') || !wx.getStorageSync('userInfo')) {
           this._login();
         } else {
           wx.hideLoading();
-          wx.switchTab({
-            url: '../index/index',
+          this._getUserInfo().then(() => {
+            wx.switchTab({
+              url: '../index/index',
+            })
           })
         }
       },
@@ -44,14 +46,35 @@ Page({
   _login() {
     wx.login({
       success: res => {
-        wx.setStorageSync('ticket', '666666');
-        wx.hideLoading();
-        wx.switchTab({
-          url: '../index/index',
+        loginApi({ code: res.code }).then(res =>{
+          wx.hideLoading();
+          if(res.code === 0) {
+            wx.setStorageSync('token', res.result);
+            this._getUserInfo().then(() => {
+              wx.switchTab({
+                url: '../index/index',
+              })
+            })
+          } else {
+            wx.showModal({
+              title: '未知错误',
+              content: '请检查您的网络设置',
+              showCancel: false,
+              mask: true
+            })
+          }
         })
       },
       fail: err => {
         console.log(err);
+      }
+    })
+  },
+
+  _getUserInfo() {
+    return getUserInfo().then(res => {
+      if(res.code === 0) {
+        wx.setStorageSync('userInfo', res.result);
       }
     })
   },

@@ -1,0 +1,55 @@
+.uc-user-card {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.uc-user-card .uc-avatar {
+  display: flex;
+  margin-right: 20rpx;
+}
+
+.uc-user-card .uc-avatar image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.uc-user-card .uc-middle {
+  flex: 1;
+}
+
+.uc-user-card .uc-nickname {
+  font-size: 28rpx;
+  color: #6a95e8;
+  font-weight: bold;
+}
+
+.uc-user-card .uc-info,
+.uc-user-card .uc-declaration {
+  margin-top: 4rpx;
+  font-size: 22rpx;
+  color: #8f8f8f;
+}
+
+.uc-user-card .uc-info text:last-child{
+  margin-left: 20rpx;
+}
+
+.uc-follow-btn {
+  width: 120rpx;
+  height: 50rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background-color: #6a95e8;
+}
+
+.uc-follow-btn.followed {
+  background-color: #eee;
+  color: #8f8f8f;
+}

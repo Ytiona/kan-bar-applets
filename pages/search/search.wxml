@@ -1,30 +1,43 @@
-
 <view class="search-box">
-	<base-dropdown-menu menuList="{{searchBy}}" menuList="{{searchBy}}" class="dropdown-menu">
+	<base-dropdown-menu menuList="{{dbmList}}" class="dropdown-menu" bind:onChange="onChangeSearchBy">
 		<view slot="right" class="menu-right">
-			<input placeholder="输入内容进行搜索" model:value="{{searchContent}}"></input>
-			<view class="search-btn {{searchContent === '' ? 'disable' : ''}}">搜索</view>
+			<input placeholder="输入内容进行搜索" model:value="{{searchContent}}" bindfocus="onFocusSearch" focus="{{searchFocus}}"></input>
+			<i class="iconfont icon-close" style="display: {{searchContent == '' ? 'none' : ''}}" bindtap="clearSearchContent"/>
+			<view class="search-btn {{searchContent === '' ? 'disable' : ''}}" bindtap="search">搜索</view>
 		</view>
 	</base-dropdown-menu>
 </view>
 
-<view class="search-history">
-	<view class="top">
-		<text class="title">搜索历史</text>
-		<i class="iconfont icon-delete" />
+<view hidden="{{showSearchRes}}">
+	<view class="search-history">
+		<view class="top">
+			<text class="title">搜索历史</text>
+			<i class="iconfont icon-delete" catchtap="clearSearchHistory"/>
+		</view>
+		<view class="content">
+			<view wx:for="{{searchHistory}}" wx:key="index" class="item" bindtap="tapSearchHistoryItem" data-content="{{item}}">{{item}}</view>
+		</view>
 	</view>
-	<view class="content">
-		<view wx:for="{{searchHistory}}" wx:key="index" class="item">{{item}}</view>
+
+	<view class="hot-search-list">
+		<view class="title">热搜榜</view>
+		<view class="content">
+			<view class="item" wx:for="{{hotSearchList}}" wx:key="id">
+				<text class="rank {{index < 3 ? 'first-three': ''}}">{{index + 1}}</text>
+				<text class="text">{{item.search_content}}</text>
+				<text class="search-count">{{item.search_count}}次搜索</text>
+			</view>
+		</view>
 	</view>
 </view>
 
-<view class="hot-search-list">
-	<view class="title">热搜榜</view>
-	<view class="content">
-		<view class="item" wx:for="{{hotSearchList}}" wx:key="index">
-			<text class="rank {{index < 3 ? 'first-three': ''}}">{{index + 1}}</text>
-			<text class="text">{{item.content}}</text>
-			<text class="search-count">{{item.searchCount}}次搜索</text>
-		</view>
+
+<view hidden="{{!showSearchRes}}" class="search-res">
+	<view hidden="{{searchBy != 'article'}}" class="article-list">
+		<article-list articleList="{{articleList}}" loadingMore="{{a_loadingMore}}" haveMore="{{a_haveMore}}" />
+	</view>
+	<view hidden="{{searchBy != 'user'}}" class="user-list">
+		<user-card wx:for="{{userList}}" wx:key="id" user="{{item}}"/>
+		<base-list-footer list="{{userList}}" haveMore="{{u_haveMore}}" loadingMore="{{u_loadingMore}}"/>
 	</view>
 </view>

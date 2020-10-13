@@ -1,0 +1,5 @@
+<view class="blf-empty-tips" hidden="{{list.length}}">
+  <image src="/assets/images/empty.png" mode="widthFix"></image>
+  <view class="text">空空如也</view>
+</view>
+<view class="blf-tips" hidden="{{!list.length}}">{{ loadingMore ? '加载中...' : haveMore ? '下拉加载更多' : '到底了' }}</view>

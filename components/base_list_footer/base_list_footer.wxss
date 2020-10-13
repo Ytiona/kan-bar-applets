@@ -1,0 +1,21 @@
+/* components/base_list_footer/base_list_footer.wxss */
+.blf-tips {
+  padding: 20rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+  color: #8f8f8f;
+}
+
+.blf-empty-tips {
+  text-align: center;
+}
+
+.blf-empty-tips image {
+  width: 60%;
+}
+
+.blf-empty-tips .text {
+  margin-top: -80rpx;
+  font-size: 26rpx;
+  color: #8f8f8f;
+}

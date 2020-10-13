@@ -61,10 +61,10 @@
 
 .seek .l {
   left: 30rpx;
-  top: 30rpx;
+  padding-top: 30rpx;
 }
 
 .seek .r {
-  top: 120rpx;
+  padding-top: 120rpx;
   left: 100rpx;
 }
