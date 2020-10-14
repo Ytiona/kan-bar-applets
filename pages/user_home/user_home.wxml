@@ -1,7 +1,7 @@
 <view class="top-wrapper">
 	<view class="top">
 		<view class="avatar">
-			<image src="{{userInfo.avatar}}" mode="widthFix"></image>
+			<image src="{{userInfo.avatar}}" mode="aspectFit"></image>
 		</view>
 		<view class="r">
 			<view class="data">
@@ -27,7 +27,7 @@
 	<view class="info">
 		<text class="nickname">{{userInfo.nickname}}</text>
 		<i wx:if="{{userInfo.sex !== -1}}" class="iconfont {{userInfo.sex == 1 ? 'icon-male' : 'icon-female'}}" />
-		<text class="city">{{userInfo.region}}</text>
+		<text class="city">{{userInfo.region || ''}}</text>
 	</view>
 
 	<view class="declaration" hidden="{{userInfo.declaration === ''}}">{{userInfo.declaration}}</view>

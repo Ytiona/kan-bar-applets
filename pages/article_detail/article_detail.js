@@ -177,7 +177,7 @@ Page({
   onTapAdopte(e) {
     wx.showModal({
       title: '提示',
-      content: '确定采纳改回答？',
+      content: '确定采纳该回答？',
       success: res => {
         if (res.confirm) {
           const {

@@ -23,7 +23,7 @@
 		<view class="num">{{userInfo.follow_count}}</view>
 		<view class="title">关 注</view>
 	</view>
-	<view class="r" bindtap="lookFriends" data-param="follow">
+	<view class="r" bindtap="lookFriends" data-param="fans">
 		<view class="num">{{userInfo.fans_count}}</view>
 		<view class="title">粉 丝</view>
 	</view>

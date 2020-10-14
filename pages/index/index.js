@@ -69,11 +69,6 @@ Page({
   },
 
   gotoRelease() {
-    wx.showModal({
-      title: '功能未开放',
-      showCancel: false
-    })
-    return;
     wx.navigateTo({
       url: `/pages/add_article/add_article?type=0`,
     })

@@ -1,6 +1,6 @@
 <view class="uc-user-card">
 	<view class="uc-avatar" bindtap="onTapUserAvatar">
-		<image src="{{user.avatar}}" mode="widthFix"></image>
+		<image src="{{user.avatar}}" mode="aspectFill"></image>
 	</view>
 	<view class="uc-middle">
 		<view class="uc-nickname">{{user.nickname}}</view>
