@@ -6,14 +6,14 @@
     后端：nodejs、express、mysql、jwt、apidoc；
     后端代码仓库(含mysql表的设计)：[https://gitee.com/ytiona/kan_bar_serve](https://gitee.com/ytiona/kan_bar_serve)
 
-### 前端基础组件：
+#### 前端基础组件：
     dropdown-menu：下拉菜单；
     modal：模态框；
     tab：标签菜单；
     tag：标签；
     list-footer：列表底部；
 
-### 前端封装：
+#### 前端封装：
     request：配合后端jwt鉴权；
     LoadByPage：分页列表工具类；
 
