@@ -2,9 +2,9 @@
 > Coded in 2020.05
 
 ### 技术栈关键词：
-    前端：原生微信小程序、es6、iconfont；
-    后端：nodejs、express、mysql、jwt、apidoc；
-    后端代码仓库(含mysql表的设计)：[https://gitee.com/ytiona/kan_bar_serve](https://gitee.com/ytiona/kan_bar_serve)
+* 前端：原生微信小程序、es6、iconfont；
+* 后端：nodejs、express、mysql、jwt、apidoc；
+* 后端代码仓库(含mysql表的设计)：[https://gitee.com/ytiona/kan_bar_serve](https://gitee.com/ytiona/kan_bar_serve)
 
 #### 前端基础组件：
     dropdown-menu：下拉菜单；
